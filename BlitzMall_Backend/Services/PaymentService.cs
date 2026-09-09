@@ -1,8 +1,9 @@
-﻿using BlitzMall_Backend.Data;
+﻿
+using System.Security.Claims;
+using BlitzMall_Backend.Data;
 using BlitzMall_Backend.DTOs.Payment;
 using BlitzMall_Backend.Models;
 using Microsoft.EntityFrameworkCore;
-using System.Security.Claims;
 
 namespace BlitzMall_Backend.Services
 {
@@ -17,6 +18,16 @@ namespace BlitzMall_Backend.Services
         {
             _db = db;
             _httpContextAccessor = httpContextAccessor;
+        }
+
+        private int? GetUserId()
+        {
+            var userIdClaim = _httpContextAccessor.HttpContext?
+                .User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            return int.TryParse(userIdClaim, out var userId)
+                ? userId
+                : null;
         }
 
         public async Task<List<PaymentDto>> GetAllAsync()
@@ -59,10 +70,13 @@ namespace BlitzMall_Backend.Services
         {
             var userId = GetUserId();
 
+            if (userId == null)
+                return null;
+
             var order = await _db.Orders
                 .FirstOrDefaultAsync(o =>
                     o.Id == dto.OrderId &&
-                    o.UserId == userId);
+                    o.UserId == userId.Value);
 
             if (order == null)
                 return null;
@@ -87,18 +101,13 @@ namespace BlitzMall_Backend.Services
             var payment = new Payment
             {
                 OrderId = order.Id,
-
-                // Сума береться з Order, а не від клієнта.
                 Amount = order.TotalAmount,
-
                 Method = dto.Method,
                 Status = "Pending",
-
                 TransactionId =
                     $"SIM-{Guid.NewGuid():N}"
-                    .Substring(0, 12)
-                    .ToUpper(),
-
+                        .Substring(0, 12)
+                        .ToUpperInvariant(),
                 CreatedAt = DateTime.UtcNow
             };
 
@@ -109,16 +118,19 @@ namespace BlitzMall_Backend.Services
             return await GetByIdAsync(payment.Id);
         }
 
-        public async Task<PaymentDto?> ProcessAsync(
-            int paymentId)
+        public async Task<PaymentDto?> ProcessAsync(int paymentId)
         {
             var userId = GetUserId();
+
+            if (userId == null)
+                return null;
 
             var payment = await _db.Payments
                 .Include(p => p.Order)
                 .FirstOrDefaultAsync(p =>
                     p.Id == paymentId &&
-                    p.Order!.UserId == userId);
+                    p.Order != null &&
+                    p.Order.UserId == userId.Value);
 
             if (payment == null)
                 return null;
@@ -135,7 +147,7 @@ namespace BlitzMall_Backend.Services
                     "Payment cannot be processed.");
             }
 
-            // Імітація успішної оплати.
+            // Імітація успішної оплати для навчального проєкту.
             payment.Status = "Completed";
             payment.CompletedAt = DateTime.UtcNow;
 
@@ -181,21 +193,6 @@ namespace BlitzMall_Backend.Services
             await _db.SaveChangesAsync();
 
             return true;
-        }
-
-        private int GetUserId()
-        {
-            var userId = _httpContextAccessor.HttpContext?
-                .User
-                .FindFirstValue(ClaimTypes.NameIdentifier);
-
-            if (!int.TryParse(userId, out var id))
-            {
-                throw new UnauthorizedAccessException(
-                    "Invalid user identity.");
-            }
-
-            return id;
         }
     }
 }

@@ -27,10 +27,7 @@ namespace BlitzMall_Backend.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new
-                {
-                    message = ex.Message
-                });
+                return StatusCode(500, new { message = ex.Message });
             }
         }
 
@@ -40,17 +37,11 @@ namespace BlitzMall_Backend.Controllers
             try
             {
                 var payment = await _paymentService.GetByIdAsync(id);
-
-                return payment == null
-                    ? NotFound()
-                    : Ok(payment);
+                return payment == null ? NotFound() : Ok(payment);
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new
-                {
-                    message = ex.Message
-                });
+                return StatusCode(500, new { message = ex.Message });
             }
         }
 
@@ -66,10 +57,7 @@ namespace BlitzMall_Backend.Controllers
                 var payment = await _paymentService.CreateAsync(dto);
 
                 return payment == null
-                    ? NotFound(new
-                    {
-                        message = "Order not found."
-                    })
+                    ? NotFound(new { message = "Order not found." })
                     : CreatedAtAction(
                         nameof(GetById),
                         new { id = payment.Id },
@@ -77,24 +65,15 @@ namespace BlitzMall_Backend.Controllers
             }
             catch (InvalidOperationException ex)
             {
-                return BadRequest(new
-                {
-                    message = ex.Message
-                });
+                return BadRequest(new { message = ex.Message });
             }
             catch (UnauthorizedAccessException ex)
             {
-                return Unauthorized(new
-                {
-                    message = ex.Message
-                });
+                return Unauthorized(new { message = ex.Message });
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new
-                {
-                    message = ex.Message
-                });
+                return StatusCode(500, new { message = ex.Message });
             }
         }
 
@@ -104,31 +83,19 @@ namespace BlitzMall_Backend.Controllers
             try
             {
                 var payment = await _paymentService.ProcessAsync(id);
-
-                return payment == null
-                    ? NotFound()
-                    : Ok(payment);
+                return payment == null ? NotFound() : Ok(payment);
             }
             catch (InvalidOperationException ex)
             {
-                return BadRequest(new
-                {
-                    message = ex.Message
-                });
+                return BadRequest(new { message = ex.Message });
             }
             catch (UnauthorizedAccessException ex)
             {
-                return Unauthorized(new
-                {
-                    message = ex.Message
-                });
+                return Unauthorized(new { message = ex.Message });
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new
-                {
-                    message = ex.Message
-                });
+                return StatusCode(500, new { message = ex.Message });
             }
         }
 
@@ -144,17 +111,11 @@ namespace BlitzMall_Backend.Controllers
             try
             {
                 var payment = await _paymentService.UpdateAsync(id, dto);
-
-                return payment == null
-                    ? NotFound()
-                    : Ok(payment);
+                return payment == null ? NotFound() : Ok(payment);
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new
-                {
-                    message = ex.Message
-                });
+                return StatusCode(500, new { message = ex.Message });
             }
         }
 
@@ -170,10 +131,7 @@ namespace BlitzMall_Backend.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new
-                {
-                    message = ex.Message
-                });
+                return StatusCode(500, new { message = ex.Message });
             }
         }
     }

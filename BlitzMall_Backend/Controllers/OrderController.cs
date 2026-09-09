@@ -1,3 +1,4 @@
+
 using BlitzMall_Backend.DTOs.Order;
 using BlitzMall_Backend.Services;
 using Microsoft.AspNetCore.Authorization;
@@ -37,10 +38,7 @@ namespace BlitzMall_Backend.Controllers
             try
             {
                 var order = await _orderService.GetByIdAsync(id);
-
-                return order == null
-                    ? NotFound()
-                    : Ok(order);
+                return order == null ? NotFound() : Ok(order);
             }
             catch (Exception ex)
             {
@@ -53,8 +51,7 @@ namespace BlitzMall_Backend.Controllers
         {
             try
             {
-                var orders = await _orderService.GetMyOrdersAsync();
-                return Ok(orders);
+                return Ok(await _orderService.GetMyOrdersAsync());
             }
             catch (Exception)
             {
@@ -75,15 +72,11 @@ namespace BlitzMall_Backend.Controllers
             try
             {
                 var order = await _orderService.CreateFromCartAsync(dto);
-
                 return Ok(order);
             }
             catch (InvalidOperationException ex)
             {
-                return BadRequest(new
-                {
-                    message = ex.Message
-                });
+                return BadRequest(new { message = ex.Message });
             }
             catch (Exception)
             {
@@ -102,20 +95,12 @@ namespace BlitzMall_Backend.Controllers
         {
             try
             {
-                var order = await _orderService.UpdateStatusAsync(
-                    id,
-                    dto);
-
-                return order == null
-                    ? NotFound()
-                    : Ok(order);
+                var order = await _orderService.UpdateStatusAsync(id, dto);
+                return order == null ? NotFound() : Ok(order);
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new
-                {
-                    message = ex.Message
-                });
+                return StatusCode(500, new { message = ex.Message });
             }
         }
 
@@ -131,10 +116,7 @@ namespace BlitzMall_Backend.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new
-                {
-                    message = ex.Message
-                });
+                return StatusCode(500, new { message = ex.Message });
             }
         }
     }

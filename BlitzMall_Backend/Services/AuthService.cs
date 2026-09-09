@@ -1,3 +1,4 @@
+
 using BlitzMall_Backend.Data;
 using BlitzMall_Backend.DTOs.Auth;
 using BlitzMall_Backend.Models;
@@ -35,11 +36,15 @@ namespace BlitzMall_Backend.Services
         public async Task<AuthResponseDto> RegisterAsync(RegisterDto dto)
         {
             if (await _db.Users.AnyAsync(u => u.Email == dto.Email))
-                throw new InvalidOperationException("Email already in use.");
+            {
+                throw new InvalidOperationException(
+                    "Email already in use.");
+            }
 
             var buyerRole = await _db.Roles
                 .FirstOrDefaultAsync(r => r.Name == "Buyer")
-                ?? throw new InvalidOperationException("Default role not found.");
+                ?? throw new InvalidOperationException(
+                    "Default role not found.");
 
             var user = new User
             {
@@ -62,15 +67,23 @@ namespace BlitzMall_Backend.Services
             var user = await _db.Users
                 .Include(u => u.Role)
                 .FirstOrDefaultAsync(u => u.Email == dto.Email)
-                ?? throw new UnauthorizedAccessException("Invalid credentials.");
+                ?? throw new UnauthorizedAccessException(
+                    "Invalid credentials.");
 
             if (string.IsNullOrEmpty(user.PasswordHash) ||
-                !BCrypt.Net.BCrypt.Verify(dto.Password, user.PasswordHash))
+                !BCrypt.Net.BCrypt.Verify(
+                    dto.Password,
+                    user.PasswordHash))
             {
-                throw new UnauthorizedAccessException("Invalid credentials.");
+                throw new UnauthorizedAccessException(
+                    "Invalid credentials.");
             }
 
-            return BuildResponse(user, user.Role!.Name!);
+            return BuildResponse(
+                user,
+                user.Role?.Name
+                    ?? throw new InvalidOperationException(
+                        "User role not found."));
         }
 
         public async Task<AuthResponseDto> GoogleLoginAsync(string idToken)
@@ -87,7 +100,7 @@ namespace BlitzMall_Backend.Services
                 });
 
             if (payload.EmailVerified != true ||
-                string.IsNullOrEmpty(payload.Email))
+                string.IsNullOrWhiteSpace(payload.Email))
             {
                 throw new UnauthorizedAccessException(
                     "Invalid Google account.");
@@ -119,7 +132,18 @@ namespace BlitzMall_Backend.Services
                 await _db.SaveChangesAsync();
             }
 
-            return BuildResponse(user, user.Role!.Name!);
+            if (user.Role == null)
+            {
+                await _db.Entry(user)
+                    .Reference(u => u.Role)
+                    .LoadAsync();
+            }
+
+            return BuildResponse(
+                user,
+                user.Role?.Name
+                    ?? throw new InvalidOperationException(
+                        "User role not found."));
         }
 
         public async Task<AuthResponseDto> FirebaseLoginAsync(string idToken)
@@ -129,7 +153,8 @@ namespace BlitzMall_Backend.Services
             try
             {
                 decodedToken =
-                    await FirebaseAuth.DefaultInstance.VerifyIdTokenAsync(idToken);
+                    await FirebaseAuth.DefaultInstance.VerifyIdTokenAsync(
+                        idToken);
             }
             catch (Exception)
             {
@@ -143,16 +168,17 @@ namespace BlitzMall_Backend.Services
                 ? emailClaim?.ToString() ?? string.Empty
                 : string.Empty;
 
-            var phoneNumber = decodedToken.Claims.TryGetValue("phone_number", out var phoneClaim)
+            var phoneNumber = decodedToken.Claims.TryGetValue(
+                "phone_number",
+                out var phoneClaim)
                 ? phoneClaim?.ToString() ?? string.Empty
                 : string.Empty;
 
-            if (string.IsNullOrWhiteSpace(email) && string.IsNullOrWhiteSpace(phoneNumber))
-                throw new UnauthorizedAccessException("Firebase token has no email or phone.");
-            if (string.IsNullOrWhiteSpace(email))
+            if (string.IsNullOrWhiteSpace(email) &&
+                string.IsNullOrWhiteSpace(phoneNumber))
             {
                 throw new UnauthorizedAccessException(
-                    "Firebase token has no email.");
+                    "Firebase token has no email or phone.");
             }
 
             var name = decodedToken.Claims.TryGetValue(
@@ -160,9 +186,6 @@ namespace BlitzMall_Backend.Services
                 out var nameClaim)
                 ? nameClaim?.ToString()
                 : null;
-
-            var buyerRole = await _db.Roles.FirstOrDefaultAsync(r => r.Name == "Buyer")
-                ?? throw new InvalidOperationException("Default role not found.");
 
             User? user = null;
 
@@ -173,7 +196,8 @@ namespace BlitzMall_Backend.Services
                     .FirstOrDefaultAsync(u => u.Email == email);
             }
 
-            if (user == null && !string.IsNullOrWhiteSpace(phoneNumber))
+            if (user == null &&
+                !string.IsNullOrWhiteSpace(phoneNumber))
             {
                 user = await _db.Users
                     .Include(u => u.Role)
@@ -182,29 +206,26 @@ namespace BlitzMall_Backend.Services
 
             if (user == null)
             {
+                var buyerRole = await _db.Roles
+                    .FirstOrDefaultAsync(r => r.Name == "Buyer")
+                    ?? throw new InvalidOperationException(
+                        "Default role not found.");
+
                 var placeholderEmail = !string.IsNullOrWhiteSpace(email)
                     ? email
                     : $"phone_{phoneNumber.TrimStart('+')}@blitzmall.phone";
 
                 user = new User
                 {
-                    Name = name ?? (!string.IsNullOrWhiteSpace(email) ? email.Split('@')[0] : phoneNumber),
+                    Name = name
+                        ?? (!string.IsNullOrWhiteSpace(email)
+                            ? email.Split('@')[0]
+                            : phoneNumber),
                     Email = placeholderEmail,
-                    Phone = !string.IsNullOrWhiteSpace(phoneNumber) ? phoneNumber : null,
-                    PasswordHash = BCrypt.Net.BCrypt.HashPassword(Guid.NewGuid().ToString()),
-                var buyerRole = await _db.Roles
-                    .FirstOrDefaultAsync(r => r.Name == "Buyer")
-                    ?? throw new InvalidOperationException(
-                        "Default role not found.");
-
-                user = new User
-                {
-                    Name = name ?? email.Split('@')[0],
-                    Email = email,
-
-                    // Firebase handles authentication.
+                    Phone = string.IsNullOrWhiteSpace(phoneNumber)
+                        ? null
+                        : phoneNumber,
                     PasswordHash = null,
-
                     RoleId = buyerRole.Id,
                     CreatedAt = DateTime.UtcNow,
                     Status = "Active",
@@ -214,13 +235,25 @@ namespace BlitzMall_Backend.Services
                 _db.Users.Add(user);
                 await _db.SaveChangesAsync();
             }
-            else if (!string.IsNullOrWhiteSpace(phoneNumber) && string.IsNullOrWhiteSpace(user.Phone))
+            else if (!string.IsNullOrWhiteSpace(phoneNumber) &&
+                     string.IsNullOrWhiteSpace(user.Phone))
             {
                 user.Phone = phoneNumber;
                 await _db.SaveChangesAsync();
             }
 
-            return BuildResponse(user, user.Role!.Name!);
+            if (user.Role == null)
+            {
+                await _db.Entry(user)
+                    .Reference(u => u.Role)
+                    .LoadAsync();
+            }
+
+            return BuildResponse(
+                user,
+                user.Role?.Name
+                    ?? throw new InvalidOperationException(
+                        "User role not found."));
         }
 
         public async Task ForgotPasswordAsync(ForgotPasswordDto dto)
@@ -341,9 +374,17 @@ namespace BlitzMall_Backend.Services
             User user,
             string role)
         {
+            var jwtKey = _config["Jwt:Key"]
+                ?? throw new InvalidOperationException(
+                    "JWT key is not configured.");
+
+            var expiryMinutes = double.Parse(
+                _config["Jwt:ExpiryMinutes"]
+                    ?? throw new InvalidOperationException(
+                        "JWT expiry is not configured."));
+
             var key = new SymmetricSecurityKey(
-                Encoding.UTF8.GetBytes(
-                    _config["Jwt:Key"]!));
+                Encoding.UTF8.GetBytes(jwtKey));
 
             var creds = new SigningCredentials(
                 key,
@@ -372,11 +413,8 @@ namespace BlitzMall_Backend.Services
                 issuer: _config["Jwt:Issuer"],
                 audience: _config["Jwt:Audience"],
                 claims: claims,
-                expires: DateTime.UtcNow.AddMinutes(
-                    double.Parse(
-                        _config["Jwt:ExpiryMinutes"]!)),
-                signingCredentials: creds
-            );
+                expires: DateTime.UtcNow.AddMinutes(expiryMinutes),
+                signingCredentials: creds);
 
             return new JwtSecurityTokenHandler()
                 .WriteToken(token);

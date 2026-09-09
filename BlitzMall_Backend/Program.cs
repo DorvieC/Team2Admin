@@ -47,11 +47,9 @@ namespace BlitzMall_Backend
             builder.Services.AddScoped<IProfileService, ProfileService>();
             builder.Services.AddScoped<IPaymentService, PaymentService>();
             builder.Services.AddScoped<IDeliveryService, DeliveryService>();
-
-            builder.Services.AddHttpContextAccessor();
-            builder.Services.AddMemoryCache();
-            builder.Services.AddScoped<IEmailService, EmailService>();
-
+ builder.Services.AddHttpContextAccessor();
+builder.Services.AddMemoryCache();
+builder.Services.AddScoped<IEmailService, EmailService>();
             builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
                 {
