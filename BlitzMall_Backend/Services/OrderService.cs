@@ -213,6 +213,42 @@ namespace BlitzMall_Backend.Services
             _db.Orders.Add(order);
             _db.CartItems.RemoveRange(cart.CartItems);
 
+            var payment = new Payment
+            {
+                OrderId = order.Id,
+                Amount = total,
+                Method = string.IsNullOrWhiteSpace(dto.PaymentMethod) ? "card" : dto.PaymentMethod,
+                Status = "Completed",
+                TransactionId = Guid.NewGuid().ToString("N"),
+                CreatedAt = DateTime.UtcNow,
+                CompletedAt = DateTime.UtcNow,
+            };
+            _db.Payments.Add(payment);
+
+            order.OrderStatus = "Paid";
+
+            await _db.SaveChangesAsync();
+
+            return new OrderDto
+            {
+                Id = order.Id,
+                OrderStatus = order.OrderStatus ?? string.Empty,
+                TotalAmount = order.TotalAmount,
+                DeliveryAddress = dto.DeliveryAddress,
+                Phone = dto.Phone,
+                Comment = dto.Comment,
+                PaymentMethod = payment.Method,
+                CreatedDate = order.CreatedDate,
+                Items = orderItems.Select(oi => new OrderItemDto
+                {
+                    ProductId = oi.ProductId,
+                    ProductName = cart.CartItems
+                        .FirstOrDefault(ci => ci.ProductId == oi.ProductId)?.Product?.Name ?? string.Empty,
+                    Quantity = oi.Quantity,
+                    UnitPrice = oi.UnitPrice,
+                    Total = oi.Quantity * oi.UnitPrice
+                }).ToList()
+            };
             cart.UpdatedDate = DateTime.UtcNow;
 
             await _db.SaveChangesAsync();
@@ -230,6 +266,7 @@ namespace BlitzMall_Backend.Services
 
             return await _db.Orders
                 .Include(o => o.Address)
+                .Include(o => o.Payments)
                 .Include(o => o.OrderItems!)
                     .ThenInclude(i => i.Product)
                 .Where(o => o.UserId == userId.Value)
@@ -266,6 +303,25 @@ namespace BlitzMall_Backend.Services
                 .ToListAsync();
         }
 
+            return orders.Select(o => new OrderDto
+            {
+                Id = o.Id,
+                OrderStatus = o.OrderStatus ?? string.Empty,
+                TotalAmount = o.TotalAmount,
+                DeliveryAddress = o.Address?.Street ?? string.Empty,
+                Phone = o.Phone ?? string.Empty,
+                Comment = o.Comment,
+                PaymentMethod = o.Payments?.FirstOrDefault()?.Method,
+                CreatedDate = o.CreatedDate,
+                Items = o.OrderItems?.Select(oi => new OrderItemDto
+                {
+                    ProductId = oi.ProductId,
+                    ProductName = oi.Product?.Name ?? string.Empty,
+                    Quantity = oi.Quantity,
+                    UnitPrice = oi.UnitPrice,
+                    Total = oi.Quantity * oi.UnitPrice
+                }).ToList() ?? new List<OrderItemDto>()
+            }).ToList();
         public async Task<OrderDto?> UpdateStatusAsync(
             int id,
             UpdateOrderStatusDto dto)
