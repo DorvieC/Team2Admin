@@ -30,7 +30,7 @@ namespace BlitzMall_Backend
             });
 
             builder.Services.AddDbContext<AppDbContext>(options =>
-                options.UseNpgsql(
+                options.UseSqlServer(
                     builder.Configuration.GetConnectionString("DefaultConnection")));
 
             builder.Services.AddScoped<IAuthService, AuthService>();
