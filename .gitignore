@@ -1,6 +1,6 @@
 .vs/
-bin/
-obj/
+**/bin/
+**/obj/
 
 *.user
 *.suo
@@ -10,6 +10,5 @@ obj/
 *.db-wal
 
 appsettings.Development.json
-
 firebase-service-account.json
-BlitzMall_Backend/firebase-service-account.json/BlitzMall_Backend/blitzmall-ab2df-firebase-adminsdk-fbsvc-9227bf8eb4.json
+**/blitzmall-ab2df-firebase-adminsdk-*.json
