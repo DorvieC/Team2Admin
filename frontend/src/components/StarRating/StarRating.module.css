@@ -1,0 +1,9 @@
+.stars {
+  display: flex;
+  align-items: center;
+}
+
+.star {
+  display: inline-block;
+  line-height: 1;
+}

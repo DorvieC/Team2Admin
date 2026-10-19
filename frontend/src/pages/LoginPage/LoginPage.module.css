@@ -1,0 +1,397 @@
+/* ── PAGE ── */
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #fefefe;
+  overflow-x: hidden;
+}
+
+/* White outer — creates white side edges */
+.pageOuter {
+  flex: 1;
+  padding: 0 82px;
+  background: #fefefe;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Back arrow on white area */
+.backRow { padding: 14px 0 10px; }
+
+.backArrow {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+.backArrow:hover { opacity: 1; }
+
+/* ── GREEN CONTENT AREA ── */
+/* Figma: Rectangle 39 — 1820×1067px fill #f1f9f1 radius 20 */
+.greenArea {
+  flex: 1;
+  background: #f1f9f1;
+  border-radius: 20px;
+  padding: 32px 40px 40px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  gap: 48px;
+  /* stretch: right card matches left column height */
+  align-items: stretch;
+}
+
+/* ── LEFT COLUMN ── */
+.left {
+  width: 44%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Figma: login__group-67-32 — "З ПОВЕРНЕННЯМ" bg #23753f radius=23 text 700 16px */
+.badge {
+  display: inline-block;
+  background: #23753f;
+  color: #fefefe;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 10px 24px;
+  border-radius: 23px;
+  align-self: flex-start;
+}
+
+/* Figma: login__el-16 — Montserrat 800 48px #323f37 */
+.leftTitle {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 48px;
+  line-height: 58px;
+  color: #323f37;
+  margin: 0;
+}
+
+/* Figma: login__el-17 — Montserrat 600 24px #323f37 */
+.leftSub {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.4;
+  color: #323f37;
+  max-width: 613px;
+  margin: 0;
+}
+
+/* ── SHOPPING ILLUSTRATION ── */
+/* Figma: "Shopping onlinegrren 1" — 400×267px radius=20.
+   Left-aligned so it centres relative to the title text above it. */
+.shoppingWrap {
+  width: 100%;
+  max-width: 400px;
+  align-self: flex-start;
+  margin: 0;
+}
+
+.shoppingImg {
+  width: 100%;
+  display: block;
+  border-radius: 20px;
+  aspect-ratio: 400 / 267;
+  object-fit: cover;
+}
+
+/* ── BENEFITS ── */
+.benefits {
+  display: flex;
+  flex-direction: column;
+  gap: 23px;
+  max-width: 560px;
+}
+
+/* Figma: 560×80px fill #fefefe radius 15 */
+.benefit {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #fefefe;
+  border-radius: 15px;
+  height: 80px;
+  padding: 0 20px;
+  width: 100%;
+}
+
+.benefitIcon {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  color: #60756b;
+}
+
+/* Повернення — explicitly green + thicker */
+.iconGreen { color: #23753f; stroke: #23753f; }
+
+/* Figma: Montserrat 700 16px #3e574c */
+.benefitText {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 28px;
+  color: #3e574c;
+}
+
+/* ── RIGHT CARD ── */
+/* Figma: login__rectangle-72-42 — 870×915px fill #fefefe radius 12 */
+.right {
+  flex: 1;
+  min-width: 0;
+  background: #fefefe;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  padding: 40px 48px;
+  display: flex;
+  flex-direction: column;
+  /* card stretches to left-column height */
+}
+
+/* Figma: login__el-45 — Montserrat 800 48px */
+.formTitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 58px;
+  color: #323f37;
+  margin: 0 0 16px;
+}
+
+/* ── FORM ── */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+/* Explicit extra spacing between submit / divider / social */
+.formSpacer { margin-top: 10px; }
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Figma: login__email-47 — Montserrat 700 24px */
+.label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 43px;
+  color: #323f37;
+}
+
+/* Figma: login__rectangle-109-49 — 814×65px radius=15 border 1px #000 */
+.input {
+  height: 65px;
+  border: 1px solid #000000;
+  border-radius: 15px;
+  padding: 0 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  color: #323f37;
+  background: #fefefe;
+  outline: none;
+  width: 100%;
+  transition: border-color 0.2s;
+}
+.input:focus {
+  border-color: #23753f;
+  box-shadow: 0 0 0 3px rgba(35, 117, 63, 0.12);
+}
+.input::placeholder { color: #323f37; font-weight: 500; opacity: 0.55; }
+.input.error { border-color: #ef4444; }
+
+.errorMsg {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  color: #ef4444;
+}
+
+/* ── REMEMBER / FORGOT ── */
+.rememberRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rememberLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: #323f37;
+  cursor: pointer;
+}
+.rememberLabel input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  accent-color: #23753f;
+}
+
+.forgotLink {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #23753f;
+  text-decoration: none;
+}
+.forgotLink:hover { text-decoration: underline; }
+
+/* ── SUBMIT BUTTON ── */
+/* Figma: 65px height fill #23753f radius=15, text 800 24px */
+.submitBtn {
+  height: 65px;
+  background: #23753f;
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  border-radius: 15px;
+  border: 1px solid #23753f;
+  cursor: pointer;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  transition: background 0.2s, transform 0.1s;
+  width: 100%;
+}
+.submitBtn:hover:not(:disabled) { background: #1a5c30; transform: translateY(-1px); }
+.submitBtn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* ── DIVIDER ── */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  color: #323f37;
+}
+.divider::before, .divider::after {
+  content: '';
+  flex: 1;
+  height: 2px;
+  background: #090909;
+  opacity: 0.12;
+}
+
+/* ── SOCIAL — Google only ── */
+.socialBtns { display: flex; }
+
+.socialBtn {
+  height: 65px;
+  flex: 1;
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  border-radius: 15px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  color: #323f37;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #fefefe;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+.socialBtn:hover { background: #f1f9f1; border-color: #23753f; }
+
+/* ── SERVER ERROR ── */
+.serverError {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  color: #dc2626;
+  font-weight: 500;
+}
+
+/* ── ACCOUNT LINK ── */
+/* Figma: "Немає акаунту?" — inside white card at the bottom, margin-top: auto */
+.accountLink {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: auto;
+  padding-top: 24px;
+}
+
+.accountLinkText {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 35px;
+  color: #323f37;
+}
+.accountLinkText a {
+  color: #23753f;
+  font-weight: 700;
+  text-decoration: none;
+}
+.accountLinkText a:hover { text-decoration: underline; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1200px) {
+  .pageOuter { padding: 0 40px; }
+  .greenArea  { padding: 24px 28px 32px; }
+  .leftTitle  { font-size: 36px; line-height: 44px; }
+  .leftSub    { font-size: 20px; }
+  .formTitle  { font-size: 36px; line-height: 44px; }
+  .label      { font-size: 18px; line-height: 32px; }
+  .input      { font-size: 18px; }
+  .divider    { font-size: 18px; }
+  .socialBtn  { font-size: 18px; height: 55px; }
+  .submitBtn  { font-size: 20px; }
+  .accountLinkText { font-size: 18px; }
+}
+
+@media (max-width: 900px) {
+  .pageOuter  { padding: 0 16px; }
+  .greenArea  { padding: 20px 20px 28px; }
+  .content    { flex-direction: column; gap: 20px; }
+  .left       { width: 100%; }
+  .leftTitle  { font-size: 28px; line-height: 36px; }
+  .leftSub    { font-size: 18px; }
+  .shoppingWrap { max-width: 280px; align-self: flex-start; }
+  .benefits   { display: none; }
+  .right      { width: 100%; padding: 28px 24px; }
+  .formTitle  { font-size: 28px; line-height: 36px; }
+  .label      { font-size: 16px; line-height: 28px; }
+  .input      { font-size: 16px; height: 52px; }
+  .divider    { font-size: 16px; }
+  .socialBtn  { font-size: 16px; height: 52px; }
+  .submitBtn  { font-size: 18px; height: 52px; }
+  .accountLinkText { font-size: 16px; }
+}
+
+@media (max-width: 480px) {
+  .pageOuter { padding: 0 8px; }
+  .right     { padding: 20px 16px; }
+}

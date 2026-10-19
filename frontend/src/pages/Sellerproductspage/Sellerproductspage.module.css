@@ -1,0 +1,425 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #fefefe;
+  font-family: 'Montserrat', sans-serif;
+  color: #323f37;
+}
+
+.container {
+  flex: 1;
+  padding: 0 40px;
+}
+
+.breadcrumbs {
+  padding: 14px 0 10px;
+  font-size: 18px;
+  font-weight: 500;
+}
+.breadcrumbs a {
+  color: #323f37;
+  text-decoration: none;
+}
+.breadcrumbs span { font-weight: 600; }
+
+/* ── Зелёная область ── */
+.greenArea {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  background: #f1f9f1;
+  border-radius: 20px;
+  padding: 16px;
+  margin-bottom: 24px;
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 800;
+  margin: 8px 0 20px;
+}
+
+/* ── Таблица ── */
+.table {
+  --cols: minmax(0, 3fr) minmax(0, 1.3fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.3fr) minmax(0, 1.1fr);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.head,
+.row {
+  display: grid;
+  grid-template-columns: var(--cols);
+  align-items: center;
+  column-gap: 16px;
+}
+
+.head {
+  padding: 0 20px;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+}
+.headCellLeft { text-align: left; }
+
+.row {
+  background: #fefefe;
+  border: 1px solid #dde5df;
+  border-radius: 20px;
+  padding: 18px 20px;
+}
+
+.cell {
+  min-width: 0;
+  text-align: center;
+  font-size: 16px;
+}
+.cellCategory { font-weight: 500; }
+.cellStrong { font-weight: 800; }
+.cellRating { font-weight: 500; }
+.cellEdit { text-align: right; }
+
+.cellProduct {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+
+.thumb {
+  flex: none;
+  width: 150px;
+  height: 78px;
+  border-radius: 10px;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  background: #e8f1ea;
+  color: #7a9a80;
+}
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.name {
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+/* ── Статусы ── */
+.status {
+  display: inline-block;
+  padding: 3px 14px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.statusActive { background: #22a244; color: #fff; }
+.statusModeration { background: #fff6d6; border: 1px solid #323f37; color: #323f37; }
+.statusHidden { background: #e6ebe7; color: #323f37; }
+.statusOut { background: #fde8e8; color: #b91c1c; }
+
+/* ── Кнопка «Редагувати» ── */
+.editBtn {
+  background: none;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  color: #323f37;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.editBtn:hover { background: #f1f9f1; text-decoration: underline; }
+
+.editBtn:focus-visible,
+.pageBtn:focus-visible {
+  outline: 2px solid #22a244;
+  outline-offset: 2px;
+}
+
+/* ── Пагинация ── */
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 28px;
+}
+
+.pageBtn {
+  min-width: 36px;
+  height: 36px;
+  padding: 0 8px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  color: #323f37;
+  background: #fefefe;
+  border: 1px solid #323f37;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.pageBtn:hover { background: #f1f9f1; }
+
+.pageBtnActive,
+.pageBtnActive:hover {
+  background: #3b7344;
+  border-color: #3b7344;
+  color: #fff;
+}
+
+.dots {
+  min-width: 24px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ── Адаптив ── */
+@media (max-width: 1500px) {
+  .thumb { width: 110px; height: 70px; }
+  .name { font-size: 16px; }
+  .cell { font-size: 15px; }
+  .head { font-size: 14px; }
+  .row, .head { column-gap: 12px; }
+}
+
+/* Карточки вместо таблицы */
+@media (max-width: 1280px) {
+  .head { display: none; }
+
+  .table { gap: 12px; }
+
+  .row {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    row-gap: 14px;
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  .cellProduct { grid-column: 1 / -1; }
+  .thumb { width: 96px; height: 68px; }
+  .name { font-size: 17px; }
+
+  .cell { text-align: left; font-size: 16px; }
+  .cell[data-label]::before {
+    content: attr(data-label);
+    display: block;
+    margin-bottom: 2px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #6b786f;
+  }
+
+  .cellStatus { grid-column: 1 / 3; }
+  .cellEdit { grid-column: 3 / -1; justify-self: end; }
+
+  .editBtn {
+    min-height: 44px;
+    padding: 0 20px;
+    border: 1px solid #dde5df;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 900px) {
+  .container { padding: 0 16px; }
+
+  .breadcrumbs {
+    padding: 12px 0 8px;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .greenArea {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+    padding: 12px;
+    border-radius: 16px;
+    margin-bottom: 16px;
+  }
+
+  .title { font-size: 24px; margin: 4px 0 14px; }
+  .pagination { margin-top: 20px; gap: 6px; }
+}
+
+@media (max-width: 600px) {
+  .row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cellStatus,
+  .cellEdit { grid-column: auto; }
+  .cellStatus { align-self: center; }
+  .pageBtn { min-width: 40px; height: 40px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .editBtn, .pageBtn { transition: none; }
+}
+/* ── Модалка редагування товару ── */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(50, 63, 55, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  padding: 20px;
+}
+.modal {
+  background: #ffffff;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 560px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 28px;
+  font-family: 'Montserrat', sans-serif;
+  color: #323f37;
+}
+.modalHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.modalTitle { font-size: 24px; font-weight: 800; margin: 0; }
+.modalClose {
+  background: none;
+  border: none;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  color: #323f37;
+}
+.modalForm {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.modalField {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.modalField label {
+  font-size: 15px;
+  font-weight: 700;
+}
+.modalField input,
+.modalField select,
+.modalField textarea {
+  border: 1px solid #dde5df;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-family: inherit;
+  font-size: 15px;
+  resize: vertical;
+}
+.modalRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.modalHint { font-size: 14px; color: #8a9790; margin: 0; }
+.imgUrlRow {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.imgUrlRow input { flex: 1; }
+.imgUrlRemove {
+  background: #fff;
+  border: 1px solid #dde5df;
+  border-radius: 8px;
+  width: 36px;
+  cursor: pointer;
+  font-size: 18px;
+  color: #c0392b;
+}
+.addImgBtn {
+  align-self: flex-start;
+  background: #f1f9f1;
+  border: 1px solid #23753f;
+  color: #23753f;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.modalCheckbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.saveError {
+  font-size: 14px;
+  font-weight: 600;
+  color: #c0392b;
+  margin: 0;
+}
+.modalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 8px;
+}
+.modalCancelBtn {
+  background: #fff;
+  border: 1px solid #dde5df;
+  border-radius: 10px;
+  padding: 12px 20px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.modalSaveBtn {
+  background: #23753f;
+  border: none;
+  color: #fff;
+  border-radius: 10px;
+  padding: 12px 24px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.modalSaveBtn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+@media (max-width: 600px) {
+  .modalRow { grid-template-columns: 1fr; }
+}

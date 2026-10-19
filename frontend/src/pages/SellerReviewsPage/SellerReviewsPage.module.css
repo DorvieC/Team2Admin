@@ -1,0 +1,198 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #fefefe;
+  font-family: 'Montserrat', sans-serif;
+  color: #323f37;
+}
+
+.container {
+  flex: 1;
+  padding: 0 40px;
+}
+
+.breadcrumbs {
+  padding: 14px 0 10px;
+  font-size: 18px;
+  font-weight: 500;
+}
+.breadcrumbs a {
+  color: #323f37;
+  text-decoration: none;
+}
+.breadcrumbs span { font-weight: 600; }
+
+.greenArea {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  background: #f1f9f1;
+  border-radius: 20px;
+  padding: 16px;
+  margin-bottom: 24px;
+  min-height: 600px;
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 800;
+  margin: 8px 0 24px;
+}
+
+/* ── Список отзывов ── */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card {
+  background: #fefefe;
+  border: 1px solid #dde5df;
+  border-radius: 15px;
+  padding: 16px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.head {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.avatar {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #3b7344;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.headInfo {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.author {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.product {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* ── Звёзды ── */
+.stars {
+  flex-shrink: 0;
+  font-size: 24px;
+  letter-spacing: 2px;
+  line-height: 1;
+}
+.starOn { color: #e8a33d; }
+.starOff { color: #d9ddd9; }
+
+.text {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+/* ── Метка "Відповідь надано" ── */
+.badge {
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: #4caf50;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* ── Поле ответа ── */
+.replyRow {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.replyInput {
+  flex: 1;
+  min-width: 0;
+  height: 40px;
+  padding: 0 24px;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  color: #323f37;
+  background: #fefefe;
+  border: 1px solid #dde5df;
+  border-radius: 10px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.replyInput:focus {
+  border-color: #23753f;
+  box-shadow: 0 0 0 3px rgba(35, 117, 63, 0.12);
+}
+.replyInput::placeholder { color: #323f37; opacity: 0.6; }
+
+.replyBtn {
+  flex-shrink: 0;
+  height: 40px;
+  padding: 0 32px;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 800;
+  color: #ffffff;
+  background: #3b7344;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+.replyBtn:hover:not(:disabled) {
+  background: #2d5a35;
+  transform: translateY(-1px);
+}
+.replyBtn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* ── Адаптив ── */
+@media (max-width: 900px) {
+  .container { padding: 0 16px; }
+  .greenArea { flex-direction: column; min-height: 0; }
+  .title { font-size: 24px; }
+}
+
+@media (max-width: 600px) {
+  .head { flex-wrap: wrap; }
+  .author { font-size: 18px; }
+  .stars { font-size: 20px; }
+  .replyRow { flex-direction: column; align-items: stretch; gap: 12px; }
+  .replyBtn { width: 100%; }
+}

@@ -1,0 +1,46 @@
+.header {
+  width: 100%;
+  height: 80px;
+  background: #ffffff;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 48px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.logo {
+  text-decoration: none;
+}
+
+.logoImg {
+  height: 56px;
+  width: auto;
+  object-fit: contain;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.globeIcon {
+  width: 28px;
+  height: 28px;
+}
+
+.lang {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: #323f37;
+}
+
+@media (max-width: 480px) {
+  .header { padding: 0 16px; height: 64px; }
+  .logoImg { height: 44px; }
+}

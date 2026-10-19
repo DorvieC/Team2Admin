@@ -1,0 +1,179 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #fefefe;
+  font-family: 'Montserrat', sans-serif;
+  color: #323f37;
+}
+
+.container {
+  flex: 1;
+  padding: 0 40px;
+}
+
+.breadcrumbs {
+  padding: 14px 0 10px;
+  font-size: 18px;
+  font-weight: 500;
+}
+.breadcrumbs a {
+  color: #323f37;
+  text-decoration: none;
+}
+.breadcrumbs span { font-weight: 600; }
+
+.greenArea {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  background: #f1f9f1;
+  border-radius: 20px;
+  padding: 16px;
+  margin-bottom: 24px;
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 800;
+  margin: 8px 0 24px;
+}
+
+/* ── Карточки ── */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.statCard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #fefefe;
+  border: 1px solid #dde5df;
+  border-radius: 15px;
+  padding: 20px 16px;
+}
+
+.statTitle { font-size: 18px; font-weight: 500; }
+.statValue { font-size: 26px; font-weight: 800; }
+.statUp { font-size: 18px; font-weight: 700; color: #22a244; }
+.statDown { font-size: 18px; font-weight: 700; color: #dc2626; }
+
+/* ── Таблица ── */
+.tableWrap {
+  overflow-x: auto; /* на узких экранах таблица скроллится внутри себя */
+}
+
+.table {
+  min-width: 760px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1.1fr 1.1fr 1.1fr 1.3fr 1fr;
+  align-items: center;
+  gap: 16px;
+  padding: 0 12px;
+}
+
+.head {
+  padding-top: 8px;
+  padding-bottom: 20px;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.body {
+  background: #fefefe;
+  border: 1px solid #dde5df;
+  border-radius: 15px;
+  padding: 8px 0;
+}
+
+.body .row {
+  height: 66px;
+}
+
+.cellBold {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* ── Статусы ── */
+.badge {
+  display: inline-block;
+  min-width: 128px;
+  text-align: center;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.badgePaid {
+  background: #4caf50;
+  color: #ffffff;
+}
+
+.badgeProcessing {
+  background: #fdf3dc;
+  border: 1px solid #e6d9b5;
+  color: #323f37;
+}
+
+/* ── Адаптив ── */
+@media (max-width: 1100px) {
+  .stats { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Карточки замовлень замість таблиці */
+@media (max-width: 1280px) {
+  .tableWrap { overflow-x: visible; }
+  .table { min-width: 0; display: flex; flex-direction: column; gap: 12px; }
+
+  .head { display: none; }
+
+  .body { background: none; border: none; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+
+  .body .row {
+    height: auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 10px;
+    column-gap: 16px;
+    padding: 16px;
+    background: #fefefe;
+    border: 1px solid #dde5df;
+    border-radius: 16px;
+  }
+
+  .row [data-label] {
+    text-align: left;
+    display: block;
+  }
+  .row [data-label]::before {
+    content: attr(data-label);
+    display: block;
+    margin-bottom: 2px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #6b786f;
+  }
+}
+
+@media (max-width: 900px) {
+  .container { padding: 0 16px; }
+  .greenArea { flex-direction: column; }
+  .title { font-size: 24px; }
+}
+
+@media (max-width: 480px) {
+  .stats { grid-template-columns: 1fr; }
+}

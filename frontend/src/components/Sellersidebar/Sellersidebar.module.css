@@ -1,0 +1,119 @@
+.sidebar {
+  width: 313px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  background: #fefefe;
+  border: 1px solid #dde5df;
+  border-radius: 20px;
+  padding: 24px 20px;
+  font-family: 'Montserrat', sans-serif;
+  color: #323f37;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 800;
+  margin: 0 0 20px;
+}
+
+.menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #323f37;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.item:hover { background: #f1f9f1; }
+.itemSoon,
+.itemSoon:hover {
+  opacity: 0.45;
+  background: none;
+  cursor: default;
+}
+
+.item:focus-visible { outline: 2px solid #22a244; outline-offset: 2px; }
+
+.itemActive,
+.itemActive:hover {
+  background: #3b7344;
+  color: #ffffff;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* ── Телефон / планшет: меню — лента с горизонтальной прокруткой ── */
+@media (max-width: 900px) {
+  .sidebar {
+    width: 100%;
+    min-width: 0;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+  }
+
+  /* заголовок остаётся для скринридеров, визуально скрыт */
+  .title {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  .menu {
+    position: relative;
+    flex-direction: row;
+    gap: 8px;
+    margin: 0 -12px;           /* лента доходит до краёв зелёной области */
+    padding: 2px 12px 8px;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .menu::-webkit-scrollbar { display: none; }
+
+  .li { flex: none; scroll-snap-align: center; }
+
+  .item {
+    width: auto;
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 18px;
+    border-radius: 999px;
+    border: 1px solid #dde5df;
+    font-size: 15px;
+    white-space: nowrap;
+  }
+
+  .itemActive,
+  .itemActive:hover {
+    border-color: #3b7344;
+    box-shadow: 0 2px 6px rgba(59, 115, 68, 0.35);
+  }
+}

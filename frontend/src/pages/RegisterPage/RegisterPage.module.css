@@ -1,0 +1,550 @@
+/* ── PAGE ── */
+/* Figma: outer page is white (#fefefe), green area (#f1f9f1 radius 20) has side margins */
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #fefefe;
+  overflow-x: hidden;
+}
+
+/* White outer container — creates the white side edges */
+.pageOuter {
+  flex: 1;
+  padding: 0 82px;
+  background: #fefefe;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Back arrow row — sits on the white area above green block */
+.backRow {
+  padding: 14px 0 10px;
+}
+
+.backArrow {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  color: #323f37;
+  display: flex;
+  align-items: center;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+.backArrow:hover { opacity: 1; }
+
+/* ── GREEN CONTENT AREA ── */
+/* Figma: Rectangle 39 — 1820×1705px fill #f1f9f1 radius 20 */
+.greenArea {
+  flex: 1;
+  background: #f1f9f1;
+  border-radius: 20px;
+  padding: 32px 40px 40px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+}
+
+/* Flex row: left + right */
+.content {
+  flex: 1;
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+/* ── LEFT COLUMN ── */
+.left {
+  width: 44%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.leftTop {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+/* Figma: Montserrat 800 48px #323f37 */
+.leftTitle {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 48px;
+  line-height: 58px;
+  color: #323f37;
+}
+
+/* Figma: Montserrat 600 20px #323f37 */
+.leftSub {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 35px;
+  color: #323f37;
+  max-width: 483px;
+}
+
+/* ── SHOPPING ILLUSTRATION ── */
+/* Figma: 662×441px borderRadius=54px, "blitzmall.pp.ua" as diagonal ribbon */
+.shoppingWrap {
+  position: relative;
+  width: 100%;
+  max-width: 662px;
+  overflow: hidden;
+  border-radius: 54px;
+  margin: 0 auto 24px;   /* centered in left column */
+  align-self: center;
+}
+
+.shoppingImg {
+  width: 100%;
+  display: block;
+  border-radius: 54px;
+}
+
+/* Figma: bottom-left triangle corner — hypotenuse ≈ -39° matches diagonal edge */
+.shoppingRibbon {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 260px;
+  height: 200px;
+  /* Triangle: top-left → bottom-left → bottom-right */
+  clip-path: polygon(0 0, 0 100%, 100% 100%);
+  background: #23753f;
+  pointer-events: none;
+}
+
+.shoppingRibbon span {
+  position: absolute;
+  top: 10px;
+  left: 8px;
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  /* Large enough to fill the full diagonal line of the triangle (≈328px) */
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  /* Rotate clockwise so text goes top-left → bottom-right along the hypotenuse */
+  transform: rotate(39deg);
+  transform-origin: left top;
+}
+
+/* ── BENEFITS ── */
+/* Figma: Frame 64/65 — centered under image, max-width matching image */
+.benefits {
+  display: flex;
+  flex-direction: column;
+  gap: 23px;
+  max-width: 560px;
+}
+
+/* Figma: 560×80px, fill #fefefe, radius 15 */
+.benefit {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #fefefe;
+  border-radius: 15px;
+  height: 80px;
+  padding: 0 20px;
+  width: 100%;
+}
+
+/* Figma: icon ~46×54px color #60756b */
+.benefitIcon {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  color: #60756b;
+}
+
+/* Повернення icon — explicitly green + thicker */
+.iconGreen {
+  color: #23753f;
+  stroke: #23753f;
+}
+
+/* Figma: Montserrat 700 16px #3e574c */
+.benefitText {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 28px;
+  color: #3e574c;
+}
+
+/* ── RIGHT CARD ── */
+/* Figma: Rectangle 72 — 936×1481px fill #fefefe radius 12 */
+.right {
+  flex: 1;
+  min-width: 0;
+  background: #fefefe;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  padding: 40px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Figma: Montserrat 800 48px */
+.formTitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 58px;
+  color: #323f37;
+  margin-bottom: 16px;
+}
+
+/* ── FORM ── */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+/* Extra spacing before/after key sections */
+.formSpacerMd { margin-top: 8px; }
+.formSpacerLg { margin-top: 14px; }
+
+/* Figma: Frame 69 — gap=69px between two 375px inputs */
+.row2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Figma: Montserrat 700 24px */
+.label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 43px;
+  color: #323f37;
+}
+
+/* Figma: 814×65px radius=15 border 1px #000 fill #fefefe */
+.input {
+  height: 65px;
+  border: 1px solid #000000;
+  border-radius: 15px;
+  padding: 0 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  color: #323f37;
+  background: #fefefe;
+  outline: none;
+  width: 100%;
+  transition: border-color 0.2s;
+}
+.input:focus {
+  border-color: #23753f;
+  box-shadow: 0 0 0 3px rgba(35, 117, 63, 0.12);
+}
+.input::placeholder { color: #323f37; font-weight: 500; opacity: 0.55; }
+.input.error { border-color: #ef4444; }
+
+.errorMsg {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  color: #ef4444;
+}
+
+/* ── PASSWORD STRENGTH ── */
+.strengthWrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 6px;
+}
+.strengthLine {
+  height: 8px;
+  width: 100%;
+  border-radius: 4px;
+  background: #e5e7eb;
+  transition: background 0.3s;
+}
+.strengthLabel {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #6b7280;
+  white-space: nowrap;
+  min-width: 90px;
+  text-align: right;
+}
+
+/* ── TERMS ── */
+/* Figma: Frame 73 — checkbox + "Я погоджуюсь з" [2-line green] "та" [2-line green] */
+.termsRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: nowrap;
+}
+
+/* Figma: Rectangle 113 — 26×23px fill #fefefe, stroke #000 weight=1, radius 5 */
+.checkbox {
+  position: relative;
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+}
+.checkbox input[type="checkbox"] {
+  opacity: 0;
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  margin: 0;
+  cursor: pointer;
+  z-index: 1;
+}
+.checkboxBox {
+  position: absolute;
+  inset: 0;
+  background: #fefefe;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  transition: background 0.2s;
+}
+.checkbox input[type="checkbox"]:checked ~ .checkboxBox {
+  background: #23753f;
+  border-color: #23753f;
+}
+.checkboxBox::after {
+  content: '';
+  display: none;
+  position: absolute;
+  left: 7px;
+  top: 3px;
+  width: 7px;
+  height: 12px;
+  border: 2px solid #fff;
+  border-top: none;
+  border-left: none;
+  transform: rotate(45deg);
+}
+.checkbox input[type="checkbox"]:checked ~ .checkboxBox::after { display: block; }
+
+/* Figma: horizontal flex with 4 items: normal + link(2line) + normal + link(2line) */
+.termsInner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: nowrap;
+}
+
+/* Figma: Montserrat 500 24px #323f37 */
+.termsNormal {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 43px;
+  color: #323f37;
+  white-space: nowrap;
+}
+
+/* Figma: Montserrat 700 24px #23753f lineHeight=30px — 2 lines */
+.termsLink {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 30px;
+  color: #23753f;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  word-break: normal;
+}
+.termsLink:hover { text-decoration: underline; }
+
+/* ── SUBMIT BUTTON ── */
+/* Figma: Rectangle 114 — 810×65px fill #23753f radius=15, text 800 24px */
+.submitBtn {
+  height: 65px;
+  background: #23753f;
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  border-radius: 15px;
+  border: 1px solid #23753f;
+  cursor: pointer;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  transition: background 0.2s, transform 0.1s;
+  width: 100%;
+}
+.submitBtn:hover:not(:disabled) { background: #1a5c30; transform: translateY(-1px); }
+.submitBtn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* ── DIVIDER ── */
+/* Figma: "або увійти за допомогою" — Montserrat 500 24px #323f37 */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  color: #323f37;
+}
+.divider::before, .divider::after {
+  content: '';
+  flex: 1;
+  height: 2px;
+  background: #090909;
+  opacity: 0.12;
+}
+
+/* ── SOCIAL — Google only ── */
+/* Figma: Frame 63 — "Google" Montserrat 800 24px */
+.socialBtns { display: flex; gap: 16px; }
+
+.socialBtn {
+  height: 65px;
+  flex: 1;
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  border-radius: 15px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  color: #323f37;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #fefefe;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+.socialBtn:hover { background: #f1f9f1; border-color: #23753f; }
+
+/* ── SERVER ERROR ── */
+.serverError {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  color: #dc2626;
+  font-weight: 500;
+}
+
+/* ── ACCOUNT LINK ── */
+/* Figma: "Вже маєте акаунт? Увійти" — inside white card, bottom */
+.accountLink {
+  display: flex;
+  justify-content: center;
+  padding-top: 4px;
+}
+
+.accountLinkText {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 35px;
+  color: #323f37;
+}
+.accountLinkText a {
+  color: #23753f;
+  font-weight: 700;
+  text-decoration: none;
+}
+.accountLinkText a:hover { text-decoration: underline; }
+
+/* ── RESPONSIVE ──
+   Замените этим блоком старый раздел RESPONSIVE в конце RegisterPage.module.css */
+
+@media (max-width: 1200px) {
+  .pageOuter  { padding: 0 40px; }
+  .greenArea  { padding: 24px 28px 32px; }
+  .leftTitle  { font-size: 36px; line-height: 44px; }
+  .formTitle  { font-size: 36px; line-height: 44px; }
+  .label      { font-size: 18px; line-height: 32px; }
+  .input      { font-size: 18px; }
+  .termsNormal { font-size: 18px; }
+  .termsLink  { font-size: 18px; }
+  .divider    { font-size: 18px; }
+  .socialBtn  { font-size: 18px; height: 55px; }
+  .submitBtn  { font-size: 20px; }
+  .accountLinkText { font-size: 18px; }
+}
+
+/* ── Планшеты и телефоны ── */
+@media (max-width: 900px) {
+  .page { min-height: 100dvh; }
+  .pageOuter  { padding: 0 16px; }
+  .backRow    { padding: 10px 0 8px; }
+  .greenArea  { padding: 20px 16px 24px; border-radius: 16px; margin-bottom: 16px; }
+  .content    { flex-direction: column; gap: 20px; }
+  .left       { width: 100%; }
+  .leftTop    { gap: 10px; margin-bottom: 16px; }
+  .leftTitle  { font-size: 28px; line-height: 36px; }
+  .leftSub    { font-size: 16px; line-height: 26px; max-width: none; }
+  .shoppingWrap { max-width: 420px; border-radius: 28px; margin-bottom: 0; }
+  .shoppingImg  { border-radius: 28px; }
+  .shoppingRibbon { width: 150px; height: 115px; }
+  .shoppingRibbon span { font-size: 13px; top: 6px; left: 5px; }
+  .benefits   { display: none; }
+
+  .right      { width: 100%; padding: 24px 20px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06); }
+  .formTitle  { font-size: 26px; line-height: 34px; margin-bottom: 8px; }
+  .form       { gap: 14px; }
+  .row2       { gap: 14px; }
+  .label      { font-size: 15px; line-height: 22px; }
+  /* 16px — минимум, чтобы iOS Safari не зумил страницу при фокусе */
+  .input      { font-size: 16px; height: 52px; border-radius: 12px; padding: 0 14px; }
+  .errorMsg   { font-size: 12px; }
+
+  .strengthWrap { gap: 6px; }
+  .strengthLabel { font-size: 12px; min-width: 70px; }
+
+  /* Условия: разрешаем перенос и убираем принудительные <br/> */
+  .termsRow   { align-items: flex-start; gap: 12px; }
+  .checkbox   { margin-top: 2px; }
+  .termsInner { flex-wrap: wrap; gap: 4px 6px; }
+  .termsNormal { font-size: 14px; line-height: 22px; white-space: normal; }
+  .termsLink  { font-size: 14px; line-height: 22px; }
+  .termsLink br { display: none; }
+
+  .submitBtn  { font-size: 17px; height: 52px; border-radius: 12px; }
+  .divider    { font-size: 14px; gap: 10px; }
+  .socialBtn  { font-size: 16px; height: 52px; border-radius: 12px; }
+  .socialBtn svg { width: 20px; height: 20px; }
+  .serverError { font-size: 14px; padding: 10px 12px; }
+  .accountLinkText { font-size: 15px; line-height: 24px; text-align: center; }
+}
+
+/* ── Узкие телефоны ── */
+@media (max-width: 480px) {
+  .pageOuter  { padding: 0 8px; }
+  .greenArea  { padding: 16px 10px 20px; border-radius: 14px; }
+  .leftTitle  { font-size: 24px; line-height: 31px; }
+  .leftSub    { font-size: 14px; line-height: 22px; }
+  /* Иллюстрация на маленьких экранах не нужна — фокус на форме */
+  .shoppingWrap { display: none; }
+  .right      { padding: 20px 14px; }
+  .formTitle  { font-size: 22px; line-height: 30px; }
+  .row2       { grid-template-columns: 1fr; gap: 14px; }
+  .checkboxBox::after { left: 7px; top: 3px; }
+}

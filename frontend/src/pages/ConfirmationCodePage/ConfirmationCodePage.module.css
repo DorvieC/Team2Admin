@@ -1,0 +1,255 @@
+/* ── BASE LAYOUT ── */
+.page { min-height: 100vh; display: flex; flex-direction: column; background: #fefefe; overflow-x: hidden; }
+.pageOuter { flex: 1; padding: 0 82px; background: #fefefe; display: flex; flex-direction: column; }
+.backRow { padding: 14px 0 10px; }
+.backArrow { background: none; border: none; cursor: pointer; padding: 4px; display: flex; align-items: center; opacity: 0.8; transition: opacity 0.2s; }
+.backArrow:hover { opacity: 1; }
+
+.greenArea {
+  flex: 1;
+  background: #f1f9f1;
+  border-radius: 20px;
+  padding: 32px 40px 40px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  gap: 48px;
+  align-items: stretch;
+}
+
+/* ── LEFT ── */
+.left {
+  width: 44%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.badge {
+  display: inline-block;
+  background: #23753f;
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 10px 24px;
+  border-radius: 23px;
+  align-self: flex-start;
+}
+
+/*
+  Figma: title (485×116px) + illustration Group93 (185×146px) SIDE BY SIDE
+  Title is on the left, illustration is on the right
+*/
+.titleRow {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.leftTitle {
+  flex: 1;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 48px;
+  line-height: 58px;
+  color: #323f37;
+  margin: 0;
+}
+
+/* Figma: Group 93 — mail+search icons, 185×146px, scaled */
+.illustration {
+  flex-shrink: 0;
+  width: 110px;
+  height: 87px;
+  object-fit: contain;
+}
+
+.leftSub {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.55;
+  color: #323f37;
+  margin: 0;
+}
+
+/* ── BENEFITS ── */
+.benefits { display: flex; flex-direction: column; gap: 16px; }
+.benefit { display: flex; align-items: center; gap: 16px; background: #fefefe; border-radius: 15px; height: 80px; padding: 0 20px; }
+.benefitIcon { width: 30px; height: 30px; flex-shrink: 0; color: #23753f; }
+.benefitText { font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 700; color: #3e574c; }
+
+/* ── RIGHT CARD ── */
+/* Figma: Rectangle 72 848×649px — starts at same level as "Перевірте повідомлення"
+   badge height(≈42px) + left column gap(20px) = 62px offset from top */
+.right {
+  flex: 1;
+  min-width: 0;
+  background: #fefefe;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+  padding: 48px 40px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 62px;
+}
+
+/*
+  Figma: Frame 113 (766×58px) — "Введіть код підтвердження" ONE LINE at 48px
+  With padding 40px each side: content width = card_width - 80px
+*/
+.formTitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 44px;
+  font-weight: 800;
+  line-height: 54px;
+  color: #323f37;
+  margin: 0 0 40px;
+  white-space: nowrap;
+}
+
+/* ── FORM ── */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;   /* large gap between code inputs and button */
+  flex: 1;
+}
+
+/*
+  Figma: Frame 114 (678×65px) — 6 inputs each 100×65px, centered, black border
+  Total with gaps: 6×100 + 5×15.6 ≈ 678px
+*/
+.codeRow {
+  display: flex;
+  gap: 13px;
+  justify-content: center;  /* centered */
+}
+
+.codeInput {
+  width: 100px;   /* Figma: 100px wide */
+  height: 65px;   /* Figma: 65px tall (wider than tall) */
+  border: 1px solid #000000;   /* Figma: black border, not green */
+  border-radius: 12px;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #323f37;
+  background: #fefefe;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.codeInput:focus {
+  border-color: #23753f;
+  box-shadow: 0 0 0 2px rgba(35,117,63,0.15);
+}
+
+.submitBtn {
+  height: 65px;
+  background: #23753f;
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 4px rgba(0,0,0,0.25);
+  transition: background 0.2s, transform 0.1s;
+  width: 100%;
+}
+.submitBtn:hover:not(:disabled) { background: #1a5c30; transform: translateY(-1px); }
+.submitBtn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* "Не отримали код?" — inside card, pushed to bottom */
+.accountLink {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: auto;
+  padding-top: 16px;
+}
+.accountLinkText {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: #323f37;
+}
+.resendBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #23753f;
+  padding: 0;
+  text-decoration: underline;
+}
+.resendBtn:hover { opacity: 0.8; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1300px) {
+  .formTitle { font-size: 36px; line-height: 44px; white-space: normal; }
+}
+@media (max-width: 1200px) {
+  .pageOuter { padding: 0 40px; }
+  .leftTitle  { font-size: 36px; line-height: 44px; }
+  .leftSub    { font-size: 18px; }
+  .codeInput  { width: 76px; height: 56px; font-size: 22px; }
+  .accountLinkText { font-size: 18px; }
+  .resendBtn  { font-size: 18px; }
+}
+@media (max-width: 900px) {
+  .pageOuter  { padding: 0 16px; }
+  .content    { flex-direction: column; align-items: flex-start; }
+  .left       { width: 100%; }
+  .leftTitle  { font-size: 28px; line-height: 36px; }
+  .benefits   { display: none; }
+  .right      { width: 100%; padding: 28px 20px; }
+  .formTitle  { font-size: 24px; line-height: 32px; white-space: normal; }
+  .codeInput  { width: 48px; height: 44px; font-size: 18px; }
+  .codeRow    { gap: 6px; }
+}
+@media (max-width: 480px) {
+  .pageOuter  { padding: 0 8px; }
+  .right      { padding: 20px 12px; }
+  .codeInput  { width: 40px; height: 40px; font-size: 16px; }
+  .codeRow    { gap: 4px; }
+  .titleRow   { flex-direction: column; align-items: flex-start; }
+}
+
+.errorMsg {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  color: #dc2626;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.successMsg {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  color: #16a34a;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 16px;
+}

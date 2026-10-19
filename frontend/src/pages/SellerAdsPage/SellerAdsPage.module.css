@@ -1,0 +1,169 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #fefefe;
+  font-family: 'Montserrat', sans-serif;
+  color: #323f37;
+}
+
+.container {
+  flex: 1;
+  padding: 0 40px;
+}
+
+.breadcrumbs {
+  padding: 14px 0 10px;
+  font-size: 18px;
+  font-weight: 500;
+}
+.breadcrumbs a {
+  color: #323f37;
+  text-decoration: none;
+}
+.breadcrumbs span { font-weight: 600; }
+
+.greenArea {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  background: #f1f9f1;
+  border-radius: 20px;
+  padding: 16px;
+  margin-bottom: 24px;
+  min-height: 600px;
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 800;
+  margin: 8px 0 24px;
+}
+
+/* ── Карточки кампаний ── */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-bottom: 40px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  background: #fefefe;
+  border: 1px solid #dde5df;
+  border-radius: 15px;
+  padding: 20px 16px;
+}
+
+.cardHead {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.cardName {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.budget {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.result {
+  font-size: 18px;
+  font-weight: 800;
+}
+
+/* ── Статусы ── */
+.badge {
+  flex-shrink: 0;
+  padding: 3px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.badgeActive {
+  background: #4caf50;
+  color: #ffffff;
+}
+
+.badgePaused {
+  background: #fdf3dc;
+  border: 1px solid #e6d9b5;
+  color: #323f37;
+}
+
+/* ── Кнопки ── */
+.manageBtn {
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  color: #323f37;
+  background: #fefefe;
+  border: 1px solid #dde5df;
+  border-radius: 8px;
+  padding: 7px 16px;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+.manageBtn:hover {
+  background: #f1f9f1;
+  border-color: #23753f;
+}
+
+.createBtn {
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 800;
+  color: #ffffff;
+  background: #3b7344;
+  border: none;
+  border-radius: 12px;
+  padding: 14px 24px;
+  cursor: pointer;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+  transition: background 0.2s, transform 0.1s;
+}
+.createBtn:hover {
+  background: #2d5a35;
+  transform: translateY(-1px);
+}
+
+/* ── Адаптив ── */
+@media (max-width: 1100px) {
+  .cards { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 900px) {
+  .container { padding: 0 16px; }
+  .greenArea { flex-direction: column; min-height: 0; }
+  .title { font-size: 24px; }
+}
+
+@media (max-width: 600px) {
+  .cards { grid-template-columns: 1fr; gap: 16px; }
+}
+.placeholderNote {
+  background: #fefefe;
+  border: 1px solid #dde5df;
+  border-radius: 16px;
+  padding: 28px;
+  font-size: 17px;
+  color: #6b7a70;
+  line-height: 1.5;
+}
