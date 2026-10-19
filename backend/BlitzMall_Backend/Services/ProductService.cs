@@ -31,8 +31,11 @@ namespace BlitzMall_Backend.Services
                     Price       = p.Price,
                     Quantity    = p.Quantity,
                     IsActive    = p.IsActive,
+                    BrandId     = p.BrandId,
                     BrandName   = p.Brand.Name,
+                    CategoryId  = p.CategoryId,
                     CategoryName= p.Category.Name,
+                    SellerId    = p.SellerId,
                     SellerName  = p.Seller.Name,
                     ImgUrls     = p.ProdImgs.Select(i => i.UrlImage!).ToList(),
                     ImageUrl    = p.ProdImgs.Select(i => i.UrlImage!).FirstOrDefault(),
@@ -56,8 +59,11 @@ namespace BlitzMall_Backend.Services
                     Price       = p.Price,
                     Quantity    = p.Quantity,
                     IsActive    = p.IsActive,
+                    BrandId     = p.BrandId,
                     BrandName   = p.Brand.Name,
+                    CategoryId  = p.CategoryId,
                     CategoryName= p.Category.Name,
+                    SellerId    = p.SellerId,
                     SellerName  = p.Seller.Name,
                     ImgUrls     = p.ProdImgs.Select(i => i.UrlImage!).ToList(),
                     ImageUrl    = p.ProdImgs.Select(i => i.UrlImage!).FirstOrDefault(),
@@ -150,19 +156,23 @@ namespace BlitzMall_Backend.Services
             }
 
             int userId = int.Parse(userIdClaim);
+            var isAdmin = _httpContextAccessor.HttpContext?.User.IsInRole("Admin") ?? false;
 
-            var seller = await _db.Sellers
-                .FirstOrDefaultAsync(s => s.UserId == userId);
-
-            if (seller == null)
+            if (!isAdmin)
             {
-                throw new InvalidOperationException("Seller not found.");
-            }
+                var seller = await _db.Sellers
+                    .FirstOrDefaultAsync(s => s.UserId == userId);
 
-            if (product.SellerId != seller.Id)
-            {
-                throw new UnauthorizedAccessException(
-                    "You cannot update this product.");
+                if (seller == null)
+                {
+                    throw new InvalidOperationException("Seller not found.");
+                }
+
+                if (product.SellerId != seller.Id)
+                {
+                    throw new UnauthorizedAccessException(
+                        "You cannot update this product.");
+                }
             }
 
             product.Name = dto.Name;
@@ -219,19 +229,23 @@ namespace BlitzMall_Backend.Services
             }
 
             int userId = int.Parse(userIdClaim);
+            var isAdmin = _httpContextAccessor.HttpContext?.User.IsInRole("Admin") ?? false;
 
-            var seller = await _db.Sellers
-                .FirstOrDefaultAsync(s => s.UserId == userId);
-
-            if (seller == null)
+            if (!isAdmin)
             {
-                throw new InvalidOperationException("Seller not found.");
-            }
+                var seller = await _db.Sellers
+                    .FirstOrDefaultAsync(s => s.UserId == userId);
 
-            if (product.SellerId != seller.Id)
-            {
-                throw new UnauthorizedAccessException(
-                    "You cannot delete this product.");
+                if (seller == null)
+                {
+                    throw new InvalidOperationException("Seller not found.");
+                }
+
+                if (product.SellerId != seller.Id)
+                {
+                    throw new UnauthorizedAccessException(
+                        "You cannot delete this product.");
+                }
             }
 
             _db.Products.Remove(product);
@@ -247,7 +261,8 @@ namespace BlitzMall_Backend.Services
             decimal? minPrice,
             decimal? maxPrice,
             int page,
-            int pageSize)
+            int pageSize,
+            int? sellerId = null)
         {
             var q = _db.Products.AsQueryable();
 
@@ -261,6 +276,9 @@ namespace BlitzMall_Backend.Services
 
             if (categoryId.HasValue)
                 q = q.Where(p => p.CategoryId == categoryId.Value);
+
+            if (sellerId.HasValue)
+                q = q.Where(p => p.SellerId == sellerId.Value);
 
             if (minPrice.HasValue)
                 q = q.Where(p => p.Price >= minPrice.Value);
@@ -281,8 +299,11 @@ namespace BlitzMall_Backend.Services
                     Price = p.Price,
                     Quantity = p.Quantity,
                     IsActive = p.IsActive,
+                    BrandId = p.BrandId,
                     BrandName = p.Brand.Name,
+                    CategoryId = p.CategoryId,
                     CategoryName = p.Category.Name,
+                    SellerId = p.SellerId,
                     SellerName = p.Seller.Name,
                     ImgUrls = p.ProdImgs.Select(i => i.UrlImage!).ToList(),
                     ImageUrl = p.ProdImgs.Select(i => i.UrlImage!).FirstOrDefault(),

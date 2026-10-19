@@ -107,9 +107,10 @@ namespace BlitzMall_Backend.Controllers
             [FromQuery] decimal? minPrice = null,
             [FromQuery] decimal? maxPrice = null,
             [FromQuery] int page = 1,
-            [FromQuery] int pageSize = 12)
+            [FromQuery] int pageSize = 12,
+            [FromQuery] int? sellerId = null)
         {
-            var result = await _productService.SearchAsync(q, categoryId, minPrice, maxPrice, page, pageSize);
+            var result = await _productService.SearchAsync(q, categoryId, minPrice, maxPrice, page, pageSize, sellerId);
             return Ok(result);
         }
     }

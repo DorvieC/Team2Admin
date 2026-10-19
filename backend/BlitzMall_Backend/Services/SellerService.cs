@@ -92,6 +92,15 @@ namespace BlitzMall_Backend.Services
             };
 
             _db.Sellers.Add(seller);
+
+            var sellerRole = await _db.Roles.FirstOrDefaultAsync(r => r.Name == "Seller");
+            var user = await _db.Users.FirstOrDefaultAsync(u => u.Id == userId);
+            if (sellerRole != null && user != null)
+            {
+                user.RoleId = sellerRole.Id;
+                user.UpdatedAt = DateTime.UtcNow;
+            }
+
             await _db.SaveChangesAsync();
 
             return new SellerDetailDto
