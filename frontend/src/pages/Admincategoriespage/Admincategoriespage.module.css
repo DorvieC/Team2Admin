@@ -1,0 +1,355 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #fefefe;
+  font-family: 'Montserrat', sans-serif;
+  color: #323f37;
+}
+
+.container {
+  flex: 1;
+  padding: 0 40px;
+}
+
+.breadcrumbs {
+  padding: 14px 0 10px;
+  font-size: 18px;
+  font-weight: 500;
+}
+.breadcrumbs a {
+  color: #323f37;
+  text-decoration: none;
+}
+.breadcrumbs span { font-weight: 600; }
+
+/* ── Зелёная область ── */
+.greenArea {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  background: #f1f9f1;
+  border-radius: 20px;
+  padding: 16px;
+  margin-bottom: 24px;
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 800;
+  margin: 8px 0 20px;
+}
+
+.sectionTitle {
+  font-size: 22px;
+  font-weight: 800;
+  margin: 0 0 14px;
+}
+
+/* ── Две карточки ── */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.col {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  flex: 1;
+  box-sizing: border-box;
+  background: #fefefe;
+  border: 1px solid #dde5df;
+  border-radius: 20px;
+  padding: 12px 20px 22px;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  column-gap: 28px;
+  min-height: 47px;
+  padding: 6px 0;
+  border-bottom: 1px solid #323f37;
+}
+
+.name {
+  font-size: 16px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.count {
+  min-width: 90px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.linkBtn {
+  min-width: 70px;
+  background: none;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 8px;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  color: #323f37;
+  text-align: left;
+  cursor: pointer;
+}
+.linkBtn:hover { background: #f1f9f1; text-decoration: underline; }
+
+/* ── Поля и кнопки ── */
+.textInput {
+  flex: 1;
+  min-width: 0;
+  box-sizing: border-box;
+  height: 48px;
+  padding: 0 14px;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  color: #323f37;
+  background: #fefefe;
+  border: 1px solid #dde5df;
+  border-radius: 10px;
+}
+.textInput::placeholder { color: #6b786f; }
+
+.primaryBtn {
+  height: 48px;
+  padding: 0 24px;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 800;
+  color: #fff;
+  background: #3b7344;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+.primaryBtn:hover { background: #2f5d37; }
+.primaryBtn:disabled {
+  background: #9db8a2;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.dangerBtn {
+  height: 48px;
+  padding: 0 24px;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 800;
+  color: #fff;
+  background: #d63a35;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+.dangerBtn:hover { background: #b52e2a; }
+
+.ghostBtn {
+  height: 48px;
+  padding: 0 16px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  color: #323f37;
+  background: #fefefe;
+  border: 1px solid #dde5df;
+  border-radius: 10px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.ghostBtn:hover { background: #f1f9f1; }
+
+.textInput:focus-visible,
+.percentInput:focus-visible,
+.primaryBtn:focus-visible,
+.ghostBtn:focus-visible,
+.linkBtn:focus-visible {
+  outline: 2px solid #22a244;
+  outline-offset: 2px;
+}
+
+/* ── Добавление / переименование ── */
+.addForm {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.editForm {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 8px;
+  padding: 4px 0;
+}
+.editForm .textInput { height: 42px; }
+.editForm .primaryBtn,
+.editForm .ghostBtn { height: 42px; padding: 0 16px; }
+
+/* ── Комиссии ── */
+.percentWrap {
+  grid-column: 2 / -1;
+  justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.percentInput {
+  width: 62px;
+  box-sizing: border-box;
+  height: 40px;
+  padding: 0 6px;
+  font-family: inherit;
+  font-size: 17px;
+  font-weight: 700;
+  color: #323f37;
+  text-align: center;
+  background: #fefefe;
+  border: 1px solid #dde5df;
+  border-radius: 8px;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+.percentInput::-webkit-outer-spin-button,
+.percentInput::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.percentSign {
+  width: 16px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.saveRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 18px;
+  margin-top: 22px;
+}
+
+.msgOk {
+  font-size: 15px;
+  font-weight: 700;
+  color: #22a244;
+}
+.msgErr {
+  margin: 12px 0 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: #dc2626;
+}
+.saveRow .msgErr { margin: 0; }
+
+/* ── Адаптив ── */
+@media (max-width: 1500px) {
+  .grid { gap: 28px; }
+  .row { column-gap: 20px; }
+}
+
+@media (max-width: 1280px) {
+  .grid { grid-template-columns: 1fr; gap: 24px; }
+}
+
+@media (max-width: 900px) {
+  .container { padding: 0 16px; }
+
+  .breadcrumbs {
+    padding: 12px 0 8px;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .greenArea {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+    padding: 12px;
+    border-radius: 16px;
+    margin-bottom: 16px;
+  }
+
+  .title { font-size: 24px; margin: 4px 0 14px; }
+  .sectionTitle { font-size: 19px; margin-bottom: 10px; }
+
+  .card { padding: 8px 16px 18px; border-radius: 16px; }
+}
+
+@media (max-width: 600px) {
+  /* название сверху, под ним «N товарів» и «Змінити» */
+  .row {
+    grid-template-columns: minmax(0, 1fr) auto;
+    row-gap: 2px;
+    padding: 10px 0;
+  }
+  .row .name { grid-column: 1 / -1; }
+  .count { min-width: 0; font-size: 14px; color: #6b786f; }
+  .linkBtn { min-width: 0; min-height: 40px; text-align: right; }
+
+  /* комиссии остаются в одну строку: название и поле */
+  .percentWrap { grid-column: 2; }
+  .row:has(.percentWrap) .name { grid-column: 1; }
+
+  .editForm { flex-wrap: wrap; }
+  .editForm .textInput { flex-basis: 100%; }
+  .editForm .primaryBtn,
+  .editForm .ghostBtn { flex: 1; }
+
+  .addForm .primaryBtn { padding: 0 18px; }
+  .saveRow .primaryBtn { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .primaryBtn { transition: none; }
+}
+
+/* ───────── Мобильный каркас админки (верхняя/нижняя панели из AdminSidebar) ───────── */
+@media (max-width: 900px) {
+  .siteChrome,
+  .breadcrumbs { display: none; }
+
+  .page {
+    background: #f1f9f1;
+    padding: calc(56px + env(safe-area-inset-top, 0px)) 0 calc(72px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .container { padding: 0; }
+
+  .greenArea {
+    gap: 12px;
+    padding: 12px;
+    background: transparent;
+    border-radius: 0;
+    margin-bottom: 0;
+  }
+
+  .title { font-size: 30px; margin: 0 0 4px; }
+}

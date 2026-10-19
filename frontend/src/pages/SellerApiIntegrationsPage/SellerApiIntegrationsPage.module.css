@@ -1,0 +1,142 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #fefefe;
+  font-family: 'Montserrat', sans-serif;
+  color: #323f37;
+}
+
+.container {
+  flex: 1;
+  padding: 0 40px;
+}
+
+.breadcrumbs {
+  padding: 14px 0 10px;
+  font-size: 18px;
+  font-weight: 500;
+}
+.breadcrumbs a {
+  color: #323f37;
+  text-decoration: none;
+}
+.breadcrumbs span { font-weight: 600; }
+
+.greenArea {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  background: #f1f9f1;
+  border-radius: 20px;
+  padding: 16px;
+  margin-bottom: 24px;
+  min-height: 600px;
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 800;
+  margin: 8px 0 24px;
+}
+
+.keyCard {
+  background: #ffffff;
+  border: 1px solid #dde5df;
+  border-radius: 15px;
+  padding: 18px 20px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.keyLabel { font-size: 20px; font-weight: 700; }
+.keyRow {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.keyValue {
+  flex: 1;
+  min-width: 220px;
+  background: #ffffff;
+  border: 1px solid #dde5df;
+  border-radius: 10px;
+  padding: 13px 16px;
+  font-size: 18px;
+  font-weight: 500;
+}
+.keyBtn {
+  background: #ffffff;
+  border: 1px solid #dde5df;
+  border-radius: 10px;
+  padding: 13px 20px;
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 700;
+  color: #323f37;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.keyBtn:hover { background: #f1f9f1; }
+.copyMsg { font-size: 14px; font-weight: 600; color: #23753f; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.card {
+  background: #fefefe;
+  border: 1px solid #dde5df;
+  border-radius: 15px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 110px;
+}
+.cardText {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.cardName { font-size: 20px; font-weight: 500; }
+.cardDesc { font-size: 15px; font-weight: 400; color: #5a6a60; }
+
+.badge {
+  align-self: flex-start;
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+}
+.badgeOn { background: #04a247; color: #ffffff; }
+.badgeOff { background: #fefefe; border: 1px solid #dde5df; color: #323f37; }
+
+.note {
+  margin-top: 24px;
+  font-size: 14px;
+  color: #6b7570;
+  line-height: 1.6;
+}
+
+@media (max-width: 1280px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 900px) {
+  .container { padding: 0 16px; }
+  .greenArea { flex-direction: column; min-height: 0; gap: 14px; padding: 12px; }
+  .grid { grid-template-columns: 1fr; }
+  .keyRow { flex-direction: column; align-items: stretch; }
+}

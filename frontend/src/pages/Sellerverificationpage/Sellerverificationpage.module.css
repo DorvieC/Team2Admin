@@ -1,0 +1,446 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #fefefe;
+  font-family: 'Montserrat', sans-serif;
+  color: #323f37;
+}
+
+.container {
+  flex: 1;
+  padding: 0 40px;
+}
+
+.breadcrumbs {
+  padding: 14px 0 10px;
+  font-size: 18px;
+  font-weight: 500;
+}
+.breadcrumbs a {
+  color: #323f37;
+  text-decoration: none;
+}
+.breadcrumbs span { font-weight: 600; }
+
+/* ── Зелёная область ── */
+.greenArea {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  background: #f1f9f1;
+  border-radius: 20px;
+  padding: 16px;
+  margin-bottom: 24px;
+}
+
+/* ── Main ── */
+.main {
+  flex: 1;
+  min-width: 0;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 800;
+  margin: 8px 0 8px;
+}
+
+.subtitle {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0 0 16px;
+}
+
+/* ── Progress ── */
+.progress {
+  height: 14px;
+  background: #fefefe;
+  border: 1px solid #323f37;
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 32px;
+}
+
+.progressFill {
+  height: 100%;
+  background: #22a244;
+  border-radius: 999px;
+  transition: width 0.4s ease;
+}
+
+/* ── Steps ── */
+.steps {
+  list-style: none;
+  margin: 0 0 32px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.step {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  column-gap: 24px;
+  background: #fefefe;
+  border: 1px solid #dde5df;
+  border-radius: 20px;
+  padding: 24px 28px;
+}
+
+.marker {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 800;
+  color: #fff;
+}
+.markerDone { background: #22a244; }
+.markerTodo { background: #22a244; border-radius: 50%; }
+
+.stepTitle {
+  font-size: 22px;
+  font-weight: 800;
+  margin: 0 0 8px;
+}
+.stepDesc {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.stepActions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  align-self: end;
+}
+
+.badgeDone,
+.badgeTodo {
+  font-size: 14px;
+  font-weight: 700;
+  padding: 3px 12px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.badgeDone { background: #22a244; color: #fff; }
+.badgeTodo {
+  background: #fff6d6;
+  border: 1px solid #323f37;
+  font-size: 16px;
+}
+
+/* ── Buttons ── */
+.primaryBtn,
+.secondaryBtn,
+.outlineBtn {
+  font-family: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.primaryBtn {
+  background: #3b7344;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 24px;
+  font-size: 18px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+}
+.primaryBtn:hover { background: #2f5d37; }
+
+.secondaryBtn {
+  background: #fefefe;
+  color: #323f37;
+  border: 1px solid #3b7344;
+  border-radius: 10px;
+  padding: 12px 24px;
+  font-size: 18px;
+}
+.secondaryBtn:hover { background: #f1f9f1; }
+
+.outlineBtn {
+  background: #fefefe;
+  color: #323f37;
+  border: 1px solid #323f37;
+  border-radius: 8px;
+  padding: 6px 18px;
+  font-size: 16px;
+  font-weight: 500;
+}
+.outlineBtn:hover { background: #f1f9f1; }
+
+.primaryBtn:focus-visible,
+.secondaryBtn:focus-visible,
+.outlineBtn:focus-visible,
+.iconBtn:focus-visible,
+.input:focus-visible,
+.modalClose:focus-visible {
+  outline: 2px solid #22a244;
+  outline-offset: 2px;
+}
+
+/* ── Note ── */
+.note {
+  background: #fefefe;
+  border: 1px solid #dde5df;
+  border-radius: 20px;
+  padding: 20px 32px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.7;
+}
+
+/* ── Modal ── */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  padding: 16px;
+  background: rgba(50, 63, 55, 0.45);
+  overflow-y: auto;
+}
+
+.modal {
+  position: relative;
+  margin: auto;
+  width: 100%;
+  max-width: 720px;
+  box-sizing: border-box;
+  background: #fefefe;
+  border-radius: 20px;
+  padding: 28px 36px 32px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+}
+
+.modalClose {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: none;
+  font-size: 30px;
+  line-height: 1;
+  color: #323f37;
+  cursor: pointer;
+  border-radius: 8px;
+}
+.modalClose:hover { background: #f1f9f1; }
+
+.modalTitle {
+  font-size: 28px;
+  font-weight: 800;
+  margin: 0 0 14px;
+}
+
+.subTitle {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 8px 0 0;
+}
+
+.label {
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.input {
+  width: 100%;
+  box-sizing: border-box;
+  height: 54px;
+  padding: 0 16px;
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 500;
+  color: #323f37;
+  background: #fefefe;
+  border: 1px solid #dde5df;
+  border-radius: 14px;
+}
+.input::placeholder { color: #8a968e; }
+
+/* ── Company form ── */
+.form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px 28px;
+}
+.full { grid-column: 1 / -1; }
+.field { display: block; min-width: 0; }
+.submitCell {
+  display: flex;
+  align-items: flex-end;
+}
+.submitCell .primaryBtn { width: 100%; height: 54px; padding: 0 16px; }
+
+/* ── Documents ── */
+.docList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.docActions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 14px;
+  padding: 8px 14px 0;
+}
+
+.fileName {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 14px;
+  font-weight: 500;
+  color: #6b786f;
+}
+
+.hiddenInput { display: none; }
+
+.error {
+  margin: 16px 0 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: #dc2626;
+}
+
+.iconBtn {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 8px;
+  background: none;
+  color: #323f37;
+  cursor: pointer;
+}
+.iconBtn:hover { background: #f1f9f1; }
+.iconBtn:disabled { opacity: 0.35; cursor: not-allowed; background: none; }
+
+.docFooter {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+/* ── Адаптив ── */
+@keyframes sheetUp {
+  from { transform: translateY(32px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+@media (max-width: 1100px) {
+  .step { grid-template-columns: auto 1fr; row-gap: 16px; }
+  .stepActions { grid-column: 1 / -1; justify-content: flex-end; }
+}
+
+@media (max-width: 900px) {
+  .container { padding: 0 16px; }
+
+  .breadcrumbs {
+    padding: 12px 0 8px;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .greenArea {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+    padding: 12px;
+    border-radius: 16px;
+    margin-bottom: 16px;
+  }
+
+  .title { font-size: 24px; margin: 4px 0 6px; }
+  .subtitle { font-size: 15px; line-height: 1.4; margin-bottom: 14px; }
+  .progress { height: 10px; margin-bottom: 20px; }
+
+  .steps { gap: 12px; margin-bottom: 20px; }
+  .step { padding: 16px; column-gap: 14px; border-radius: 16px; }
+  .stepTitle { font-size: 18px; margin-bottom: 4px; }
+  .stepDesc { font-size: 14px; line-height: 1.4; }
+
+  /* бейдж слева, кнопка справа — отдельной строкой под текстом */
+  .stepActions {
+    align-self: stretch;
+    justify-content: space-between;
+    padding-top: 12px;
+    border-top: 1px solid #e6eee8;
+  }
+  .badgeDone, .badgeTodo { font-size: 13px; }
+  .badgeTodo { padding: 3px 10px; }
+
+  .primaryBtn { min-height: 44px; padding: 10px 22px; font-size: 16px; }
+  .secondaryBtn { min-height: 44px; padding: 10px 22px; font-size: 16px; }
+  .outlineBtn { min-height: 44px; padding: 8px 18px; font-size: 15px; }
+
+  .note { font-size: 14px; line-height: 1.6; padding: 16px; border-radius: 16px; }
+}
+
+/* Модалки на телефоне — нижняя панель */
+@media (max-width: 600px) {
+  .overlay { padding: 0; align-items: flex-end; }
+
+  .modal {
+    margin: 0;
+    max-width: none;
+    max-height: 92vh;
+    max-height: 92dvh;
+    overflow-y: auto;
+    border-radius: 20px 20px 0 0;
+    padding: 24px 18px calc(24px + env(safe-area-inset-bottom, 0px));
+    animation: sheetUp 0.25s ease-out;
+  }
+
+  .modalClose { top: 10px; right: 10px; width: 44px; height: 44px; }
+  .modalTitle { font-size: 22px; padding-right: 40px; margin-bottom: 16px; }
+  .label { font-size: 16px; margin-bottom: 8px; }
+  .subTitle { font-size: 16px; }
+
+  /* 16px в полях — иначе iOS приближает страницу при фокусе */
+  .input { height: 50px; font-size: 16px; border-radius: 12px; }
+
+  .form { grid-template-columns: 1fr; gap: 14px; }
+  .submitCell .primaryBtn { height: 50px; }
+
+  .docActions { flex-wrap: wrap; justify-content: flex-end; gap: 4px; padding: 6px 0 0; }
+  .fileName { flex: 1 1 100%; order: -1; padding-left: 4px; }
+  .iconBtn { width: 44px; height: 44px; }
+
+  .docFooter { flex-direction: column; gap: 10px; }
+  .docFooter .primaryBtn,
+  .docFooter .secondaryBtn { width: 100%; }
+}
+
+@media (max-width: 480px) {
+  .step { padding: 14px; }
+  .step .stepActions { gap: 10px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .modal { animation: none; }
+  .progressFill { transition: none; }
+}

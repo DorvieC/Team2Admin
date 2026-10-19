@@ -1,0 +1,181 @@
+.footer {
+  border-top: 1px solid rgba(0,0,0,0.12);
+  margin-top: 40px;
+  padding: 40px 77px 0;
+  overflow-x: hidden;
+}
+
+.footerTop {
+  display: flex;
+  gap: 0;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(0,0,0,0.12);
+}
+
+.footerLogo {
+  display: flex;
+  flex-direction: column;
+  margin-right: 100px;
+  flex-shrink: 0;
+}
+
+.footerLogoImg {
+  width: 279px;
+  height: 91px;
+  object-fit: contain;
+}
+
+.footerLinks {
+  display: flex;
+  gap: 118px;
+}
+
+.footerLinkGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.footerLinkTitle {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 20px;
+  color: #323f37;
+  line-height: 22px;
+}
+
+.footerLinkList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.footerLink {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  color: #323f37;
+  line-height: 22px;
+  cursor: pointer;
+}
+
+.footerLink:hover {
+  color: #256c43;
+}
+
+.footerSocial {
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.socialTitle {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: #323f37;
+}
+
+.socialIcons {
+  display: flex;
+  gap: 10px;
+}
+
+.socialBtn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.15);
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 22px;
+  transition: background 0.2s;
+}
+
+.socialBtn:hover {
+  background: #f0fdf4;
+}
+
+.footerBottom {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 0 24px;
+}
+
+.copyright {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  color: #323f37;
+}
+
+/* ---------- Адаптив ---------- */
+@media (max-width: 1440px) {
+  .footer { padding: 40px 32px 0; }
+  .footerTop { flex-wrap: wrap; gap: 32px; }
+  .footerLogo { margin-right: 0; }
+  .footerLinks { gap: 40px; }
+  .footerLink,
+  .footerLinkTitle,
+  .socialTitle { font-size: 18px; }
+}
+
+@media (max-width: 1024px) {
+  .footerLinks { gap: 24px 40px; flex-wrap: wrap; }
+}
+
+/* Планшет и телефон */
+@media (max-width: 768px) {
+  .footer { padding: 28px 20px 0; margin-top: 24px; }
+
+  .footerTop {
+    flex-direction: column;
+    gap: 28px;
+    padding-bottom: 28px;
+  }
+
+  .footerLogoImg { width: 180px; height: 59px; }
+
+  /* Три колонки превращаются в компактную сетку */
+  .footerLinks {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px 20px;
+    width: 100%;
+  }
+
+  .footerSocial { margin-left: 0; }
+}
+
+/* Телефон: одна колонка, крупные области нажатия */
+@media (max-width: 480px) {
+  .footer { padding: 24px 16px 0; }
+
+  .footerLinks {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .footerLinkGroup { gap: 6px; }
+
+  .footerLinkTitle,
+  .socialTitle { font-size: 17px; }
+
+  .footerLinkList { gap: 0; }
+
+  .footerLink {
+    font-size: 16px;
+    line-height: 1.3;
+    padding: 10px 0; /* область нажатия около 44px */
+    overflow-wrap: anywhere;
+  }
+
+  .socialBtn { width: 48px; height: 48px; }
+
+  .footerBottom { padding: 14px 0 20px; }
+  .copyright { font-size: 14px; }
+}

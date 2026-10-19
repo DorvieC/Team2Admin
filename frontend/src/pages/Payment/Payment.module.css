@@ -1,0 +1,367 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+
+.err {
+  color: #d62d2d;
+  font-size: 12px;
+  margin-top: 4px;
+  display: block;
+}
+
+.hiddenRadio {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.pageWrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.checkoutPage {
+  --green-900: #1f5e3b;
+  --green-700: #2f6b3f;
+  --green-600: #3d7a4b;
+  --mint-100: #f3f8f2;
+  --line: #d9dfd9;
+  --text: #1a1a1a;
+  --muted: #555;
+
+  flex: 1;
+  max-width: 1980px;
+  margin: 0 auto;
+  font-family: "Montserrat", system-ui, sans-serif;
+  color: var(--text);
+  padding: 0 40px 40px;
+}
+
+.checkoutPage input,
+.checkoutPage textarea,
+.checkoutPage button {
+  font-family: inherit;
+}
+
+/* breadcrumbs */
+.crumbs {
+  display: flex;
+  gap: 8px;
+  margin: 20px 0 20px 40px;
+  font-size: 18px;
+}
+.crumbs a {
+  color: var(--text);
+  text-decoration: none;
+}
+.crumbs span:last-child {
+  font-weight: 500;
+}
+
+/* stepper */
+.stepper {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0 40px 24px;
+  padding: 0;
+  list-style: none;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--muted);
+}
+.stepper li {
+  display: flex;
+  align-items: center;
+}
+.stepperArrow {
+  color: var(--line);
+}
+.stepNumber {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  margin-right: 8px;
+  border-radius: 50%;
+  border: 2px solid var(--line);
+  font-size: 15px;
+  color: var(--muted);
+}
+.stepDone .stepNumber {
+  border-color: var(--green-700);
+  background: var(--green-700);
+  color: #fff;
+}
+.stepActive {
+  color: var(--text);
+}
+.stepActive .stepNumber {
+  border-color: var(--green-700);
+  color: var(--green-700);
+}
+
+/* layout: форма 900px, по центру зелёного блока */
+.body {
+  display: grid;
+  grid-template-columns: minmax(0, 900px) clamp(320px, 28vw, 400px);
+  justify-content: center;
+  gap: 32px;
+  align-items: start;
+  padding: 32px clamp(20px, 3vw, 40px) 48px;
+  background: var(--mint-100);
+  border-radius: 28px;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+}
+
+/* form */
+.form {
+  padding: 32px clamp(20px, 3vw, 40px) 36px;
+}
+.formTitle {
+  margin: 0 0 28px;
+  font-size: 28px;
+  font-weight: 700;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+}
+.field label {
+  font-size: 18px;
+  font-weight: 600;
+}
+.field input {
+  width: 100%;
+  box-sizing: border-box;
+  height: 58px;
+  padding: 0 18px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  font-size: 18px;
+  color: var(--text);
+}
+.field input::placeholder {
+  color: #9aa39a;
+}
+.field input:focus-visible {
+  outline: 2px solid var(--green-600);
+  outline-offset: 1px;
+}
+
+/* способы оплаты */
+.methods {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 26px;
+}
+.methodBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.method {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 22px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  cursor: pointer;
+}
+.method:hover {
+  border-color: var(--green-600);
+}
+.methodSelected {
+  border-color: var(--green-700);
+  background: var(--mint-100);
+}
+.radio {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  border: 2px solid var(--line);
+  border-radius: 50%;
+  position: relative;
+}
+.methodSelected .radio {
+  border-color: var(--green-700);
+}
+.methodSelected .radio::after {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border-radius: 50%;
+  background: var(--green-700);
+}
+.methodName {
+  display: block;
+  font-size: 19px;
+  font-weight: 700;
+}
+.methodMeta {
+  display: block;
+  font-size: 16px;
+  color: var(--muted);
+}
+
+/* данные карты: сразу под «Банківська карта» */
+.cardFields {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 150px 110px;
+  gap: 16px;
+  padding: 4px 4px 10px;
+}
+.cardNameField {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 600px) {
+  .cardFields {
+    grid-template-columns: 1fr 1fr;
+  }
+  .cardFields > :first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+/* кнопки: Назад + Далі в одном ряду */
+.actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 12px;
+}
+.back {
+  flex: none;
+  padding: 0 32px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+  color: var(--text);
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.back:hover {
+  border-color: var(--green-700);
+  color: var(--green-700);
+}
+.submit {
+  flex: 1;
+  padding: 22px;
+  border: 0;
+  border-radius: 14px;
+  background: var(--green-700);
+  color: #fff;
+  font-size: clamp(20px, 1.8vw, 24px);
+  font-weight: 700;
+  cursor: pointer;
+}
+.submit:hover {
+  background: var(--green-900);
+}
+.submit:disabled {
+  background: #a9bcae;
+  cursor: not-allowed;
+}
+
+/* summary */
+.summary {
+  padding: 32px clamp(20px, 3vw, 40px) 32px;
+}
+.summary h2 {
+  margin: 0 0 28px;
+  font-size: 24px;
+  font-weight: 700;
+}
+.row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+  font-size: clamp(17px, 1.6vw, 22px);
+  font-weight: 500;
+}
+.rowCashback span:last-child {
+  color: var(--green-700);
+  font-weight: 700;
+}
+.rowTotal {
+  margin-top: 20px;
+  font-weight: 700;
+}
+
+.promo {
+  display: flex;
+  gap: 16px;
+  margin-top: 30px;
+}
+.promo input {
+  flex: 1;
+  min-width: 0;
+  height: 60px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  font-size: 20px;
+}
+.promo button {
+  width: 96px;
+  border: 0;
+  border-radius: 14px;
+  background: var(--green-700);
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.promo button:hover {
+  background: var(--green-900);
+}
+
+.checkoutPage :focus-visible {
+  outline: 3px solid var(--green-600);
+  outline-offset: 2px;
+}
+
+/* responsive */
+@media (max-width: 1400px) {
+  .body {
+    grid-template-columns: minmax(0, 900px);
+  }
+}
+@media (max-width: 700px) {
+  .checkoutPage {
+    padding: 0 12px 24px;
+  }
+  .crumbs,
+  .stepper {
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+  .stepper {
+    flex-wrap: wrap;
+    font-size: 16px;
+  }
+  .body {
+    padding: 16px;
+    gap: 20px;
+  }
+  .form,
+  .summary {
+    padding: 20px;
+  }
+  .formTitle {
+    font-size: 24px;
+  }
+}

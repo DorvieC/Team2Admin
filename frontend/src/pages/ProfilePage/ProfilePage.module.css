@@ -1,0 +1,984 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap");
+
+.page {
+  font-family: "Montserrat", system-ui, sans-serif;
+  color: #323f37;
+  min-height: 100vh;
+  background: #fefefe;
+}
+
+.inner {
+  max-width: 1980px;
+  margin: 0 auto;
+  padding: 0 90px 60px;
+}
+
+.crumbs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 22px 0;
+  font-size: 20px;
+  font-weight: 500;
+}
+.crumbs a {
+  color: #323f37;
+  text-decoration: none;
+}
+.crumbsCurrent {
+  color: #000;
+}
+
+.panel {
+  background: #f1f9f1;
+  border-radius: 20px;
+  padding: 26px 32px 40px;
+}
+
+.layout {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+/* Sidebar */
+.sidebar {
+  flex: 0 0 324px;
+  width: 324px;
+  background: #fffeff;
+  border: 1px solid rgba(0, 0, 0, 0.28);
+  border-radius: 20px;
+  padding: 20px 20px 35px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.sidebarTitle {
+  margin: 0 0 8px;
+  font-size: 24px;
+  font-weight: 800;
+  text-align: center;
+  color: #323f37;
+}
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  background: none;
+  font-family: inherit;
+  font-size: 20px;
+  font-weight: 700;
+  color: #323f37;
+  padding: 13px 26px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.navItem:hover {
+  background: rgba(35, 117, 63, 0.08);
+}
+.navActive {
+  background: #23753f;
+  color: #e9fff4;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25) inset;
+}
+.navActive:hover {
+  background: #23753f;
+}
+
+/* Main content */
+.main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.topRow {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.leftCol {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.identityRow {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+.avatar {
+  flex: none;
+  width: 114px;
+  height: 114px;
+  border-radius: 50%;
+  background: rgba(255, 151, 47, 0.37);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  font-weight: 800;
+  color: #fff;
+}
+.identityInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex: 1;
+  min-width: 0;
+}
+.name {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 800;
+  color: #323f37;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.contactRow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px 54px;
+  font-size: 24px;
+  font-weight: 500;
+  min-width: 0;
+}
+.contactEmail {
+  color: #000;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  min-width: 0;
+}
+.contactPhone {
+  color: #323f37;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.fieldsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 375px));
+  gap: 20px 62px;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.fieldLabel {
+  font-size: 24px;
+  font-weight: 700;
+  color: #323f37;
+}
+.fieldInput {
+  height: 65px;
+  border-radius: 15px;
+  background: #fefefe;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  padding: 0 20px;
+  font-family: inherit;
+  font-size: 24px;
+  font-weight: 500;
+  color: #323f37;
+  outline: none;
+  box-sizing: border-box;
+  width: 100%;
+}
+.fieldInput:focus {
+  border-color: #23753f;
+}
+
+.saveBtn {
+  align-self: flex-start;
+  width: 310px;
+  height: 65px;
+  border: 1px solid #23753f;
+  border-radius: 15px;
+  background: #23753f;
+  color: #fff;
+  font-family: inherit;
+  font-size: 24px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25) inset;
+}
+.saveBtn:hover {
+  background: #1b5e32;
+}
+.saveBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.logoutBtn {
+  align-self: flex-start;
+  width: 180px;
+  height: 65px;
+  border: 1px solid #23753f;
+  border-radius: 15px;
+  background: #fff;
+  color: #23753f;
+  font-family: inherit;
+  font-size: 20px;
+  font-weight: 800;
+  cursor: pointer;
+}
+.logoutBtn:hover {
+  background: #f1f9f1;
+}
+
+.saveMsg {
+  font-size: 16px;
+  font-weight: 600;
+  color: #23753f;
+}
+.saveErr {
+  font-size: 16px;
+  font-weight: 600;
+  color: #d62d2d;
+}
+
+/* Loyalty card */
+.loyaltyCard {
+  flex: 0 0 446px;
+  width: 446px;
+  background: #fefefe;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 15px;
+  padding: 30px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.loyaltyTitle {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 600;
+  color: #323f37;
+}
+.loyaltyBonuses {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: #323f37;
+}
+.loyaltyCashback {
+  margin: 6px 0 0;
+  font-size: 20px;
+  font-weight: 500;
+  color: #323f37;
+}
+.progressTrack {
+  margin-top: 10px;
+  width: 100%;
+  height: 16px;
+  border-radius: 15px;
+  background: #fff;
+  border: 1px solid #23753f;
+  overflow: hidden;
+}
+.progressFill {
+  height: 100%;
+  border-radius: 15px;
+  background: #05bc52;
+  border: 1px solid #23753f;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25) inset;
+  transition: width 0.3s;
+}
+.loyaltyHint {
+  margin: 8px 0 0;
+  font-size: 20px;
+  font-weight: 500;
+  color: #323f37;
+}
+.spendBtn {
+  align-self: flex-start;
+  margin-top: 10px;
+  width: 179px;
+  height: 55px;
+  border: 1px solid #23753f;
+  border-radius: 15px;
+  background: #23753f;
+  color: #fff;
+  font-family: inherit;
+  font-size: 20px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25) inset;
+}
+.spendBtn:hover {
+  background: #1b5e32;
+}
+
+/* Stat cards (дашборд нагорі, у стилі кабінету продавця) */
+.statsRow {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin-bottom: 32px;
+}
+.statCard {
+  box-sizing: border-box;
+  background: #fefefe;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 15px;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: #323f37;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  min-width: 0;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+.statCard:hover {
+  border-color: #23753f;
+  transform: translateY(-1px);
+}
+.statIcon {
+  flex: none;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #eaf7e3;
+  color: #23753f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.statText {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+.statLabel {
+  font-size: 15px;
+  font-weight: 500;
+  color: #5a6a60;
+}
+.statValue {
+  font-size: 19px;
+  font-weight: 700;
+  overflow-wrap: break-word;
+}
+
+/* Placeholder sections for not-yet-implemented sidebar tabs */
+.placeholder {
+  background: #fefefe;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 15px;
+  padding: 60px 40px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  color: #666;
+}
+
+/* Orders list (Замовлення tab) */
+.ordersList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.orderRow {
+  background: #fefefe;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 15px;
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.orderRowLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.orderId {
+  font-weight: 700;
+  font-size: 18px;
+}
+.orderMeta {
+  font-size: 14px;
+  color: #666;
+}
+.orderStatusBadge {
+  font-weight: 700;
+  font-size: 14px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  background: rgba(35, 117, 63, 0.12);
+  color: #23753f;
+}
+.orderTotal {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+/* Favorites (Обране) */
+.favGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.favCard {
+  width: 220px;
+  background: #fefefe;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 15px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+}
+.favImg {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  background: #f0f0f0;
+}
+.favBody {
+  padding: 12px;
+}
+.favName {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0 0 6px;
+}
+.favPrice {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+@media (max-width: 1500px) {
+  .layout,
+  .topRow {
+    flex-direction: column;
+  }
+  .sidebar,
+  .loyaltyCard {
+    width: 100%;
+    flex: none;
+  }
+  .identityRow {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 900px) {
+  .fieldsGrid {
+    grid-template-columns: 1fr;
+  }
+  .statsRow {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+  .statCard {
+    padding: 14px 16px;
+    gap: 12px;
+  }
+  .statIcon {
+    width: 40px;
+    height: 40px;
+  }
+  .statLabel {
+    font-size: 14px;
+  }
+  .statValue {
+    font-size: 17px;
+  }
+  .identityRow {
+    gap: 20px;
+  }
+  .avatar {
+    width: 72px;
+    height: 72px;
+    font-size: 26px;
+  }
+  .name {
+    font-size: 22px;
+  }
+  .contactRow {
+    gap: 6px 24px;
+    font-size: 16px;
+  }
+
+  /* ── Меню "Особистий кабінет" — стрічка пілюль замість великого списку ── */
+  .sidebar {
+    width: 100%;
+    border: none;
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+  }
+  .sidebarTitle {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+  .sidebar > .navItem {
+    display: inline-flex;
+  }
+  .sidebar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 8px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 2px 2px 8px;
+    margin: 0 -2px;
+  }
+  .sidebar::-webkit-scrollbar { display: none; }
+  .navItem {
+    flex: none;
+    width: auto;
+    white-space: nowrap;
+    padding: 10px 18px;
+    border-radius: 999px;
+    border: 1px solid #dde5df;
+    font-size: 15px;
+    gap: 8px;
+  }
+  .navActive {
+    box-shadow: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .inner {
+    padding: 0 16px 40px;
+  }
+  .saveBtn,
+  .logoutBtn {
+    width: 100%;
+  }
+}
+
+/* ───────── Загальні елементи нових розділів (Повернення/Порівняння/Відгуки/Підписки/Купони/Картки/Сповіщення) ───────── */
+
+.sectionH1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #323f37;
+  margin: 0 0 24px;
+}
+
+.placeholderSub {
+  font-size: 16px;
+  font-weight: 500;
+  color: #666;
+  margin-top: 8px;
+}
+
+/* ── Повернення ── */
+.returnsWrap { width: 100%; }
+
+.returnForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.returnFormRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.returnTextarea {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #dde5df;
+  border-radius: 15px;
+  padding: 16px;
+  font-family: inherit;
+  font-size: 16px;
+  resize: vertical;
+}
+.returnMsg {
+  font-size: 15px;
+  font-weight: 600;
+  color: #b45309;
+  background: #fef3c7;
+  border: 1px solid #fde68a;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin-top: 8px;
+}
+
+/* ── Порівняння ── */
+.compareWrap { width: 100%; }
+.compareHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.compareCount {
+  font-size: 18px;
+  font-weight: 500;
+  color: #5a6a60;
+  margin: 4px 0 0;
+}
+.compareActions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.diffToggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.clearCompareBtn {
+  background: #ffffff;
+  border: 2px solid #256c43;
+  color: #256c43;
+  border-radius: 14px;
+  padding: 14px 24px;
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.clearCompareBtn:hover { background: #f1f9f1; }
+
+.compareEmpty {
+  background: #ffffff;
+  border: 1px solid #d6e6da;
+  border-radius: 20px;
+  padding: 80px 40px;
+  text-align: center;
+}
+.compareEmptyIcon { font-size: 56px; color: #256c43; display: block; }
+.compareEmptyCount { font-size: 24px; font-weight: 700; margin: 16px 0 8px; }
+
+.compareTable {
+  background: #ffffff;
+  border: 1px solid #d6e6da;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.compareProductsRow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  gap: 24px;
+  padding: 24px;
+}
+.compareProductCell {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+.compareRemoveBtn {
+  position: absolute;
+  top: -8px;
+  right: 8px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid #dde5df;
+  background: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+}
+.compareProductImg {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+.compareProductName {
+  color: #323f37;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 16px;
+}
+.compareProductPrice { font-weight: 700; font-size: 18px; margin: 0; }
+
+.compareGroupHead {
+  background: #f1f9f1;
+  color: #256c43;
+  font-size: 18px;
+  font-weight: 800;
+  padding: 14px 24px;
+}
+.compareRow {
+  display: grid;
+  grid-template-columns: 260px repeat(auto-fit, minmax(0, 1fr));
+  gap: 24px;
+  padding: 18px 24px;
+  background: #eaf7e3;
+  border-top: 1px solid #d6e6da;
+}
+.compareRow:nth-of-type(even) { background: #ffffff; }
+.compareRowLabel { font-weight: 600; color: #323f37; }
+.compareRowValue { font-weight: 500; color: #323f37; }
+
+/* ── Мої відгуки ── */
+.reviewsWrap { width: 100%; }
+.reviewsTabs {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.reviewsTabBtn {
+  background: #ffffff;
+  border: 1px solid #dde5df;
+  border-radius: 999px;
+  padding: 10px 20px;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  color: #323f37;
+}
+.reviewsTabActive {
+  background: #256c43;
+  border-color: #256c43;
+  color: #ffffff;
+}
+.pendingReviewCard,
+.publishedReviewCard {
+  background: #ffffff;
+  border: 1px solid #dde5df;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.pendingReviewHead {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.reviewProductImg {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+.reviewProductName {
+  color: #323f37;
+  font-weight: 700;
+  font-size: 18px;
+  text-decoration: none;
+}
+.reviewDate { font-size: 14px; color: #8a9790; margin: 4px 0 0; }
+.reviewText { font-size: 16px; color: #323f37; margin: 0; }
+.starsInput { display: flex; gap: 4px; }
+.starBtn {
+  background: none;
+  border: none;
+  font-size: 26px;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
+.editReviewBtn {
+  align-self: flex-start;
+  background: none;
+  border: none;
+  color: #256c43;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* ── Підписки ── */
+.subsWrap { width: 100%; }
+
+/* ── Купони і бонуси ── */
+.couponsWrap { width: 100%; }
+.couponsBonusGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+.bonusStatsRow {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+.bonusStatCard {
+  background: #ffffff;
+  border: 1px solid #dde5df;
+  border-radius: 15px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+  min-width: 180px;
+}
+.bonusStatLabel { font-size: 18px; font-weight: 600; color: #5a6a60; }
+.bonusStatValue { font-size: 24px; font-weight: 700; color: #323f37; }
+.bonusStatSub { font-size: 16px; font-weight: 700; color: #23753f; }
+.spendBtnSmall {
+  align-self: flex-start;
+  background: #23753f;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 18px;
+  font-family: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+.accrualList { display: flex; flex-direction: column; gap: 10px; }
+.accrualRow {
+  display: flex;
+  justify-content: space-between;
+  background: #ffffff;
+  border: 1px solid #dde5df;
+  border-radius: 10px;
+  padding: 12px 18px;
+  font-size: 15px;
+  font-weight: 500;
+}
+.levelCard {
+  background: #ffffff;
+  border: 1px solid #dde5df;
+  border-radius: 15px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.levelCardName { font-size: 24px; font-weight: 800; }
+.levelCashback { font-size: 18px; font-weight: 700; color: #23753f; }
+.levelsTable {
+  background: #ffffff;
+  border: 1px solid #dde5df;
+  border-radius: 15px;
+  padding: 20px;
+  margin-top: 24px;
+}
+.levelsRow {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  font-size: 18px;
+  font-weight: 700;
+  border-bottom: 1px solid #f1f9f1;
+}
+.levelsRow:last-child { border-bottom: none; }
+
+/* ── Мої картки ── */
+.cardsWrap { width: 100%; }
+.addCardTile {
+  width: 100%;
+  background: #fafcfa;
+  border: 1.5px dashed #b9c6be;
+  border-radius: 16px;
+  padding: 24px;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1f7a3e;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+.addCardTile:hover { background: #f1f9f1; }
+.securityNote {
+  background: #ffffff;
+  border: 1px solid #dde5df;
+  border-radius: 14px;
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 24px;
+}
+.securityNote strong { font-size: 15px; }
+.securityNote p { font-size: 13px; color: #6b7570; margin: 0; }
+
+@media (max-width: 900px) {
+  .returnFormRow,
+  .couponsBonusGrid {
+    grid-template-columns: 1fr;
+  }
+  .compareProductsRow {
+    grid-template-columns: repeat(3, minmax(90px, 1fr));
+    gap: 10px;
+    padding: 16px 12px;
+  }
+  .compareProductImg {
+    width: 100%;
+    max-width: 72px;
+    height: 72px;
+  }
+  .compareProductName {
+    font-size: 12px;
+  }
+  .compareProductPrice {
+    font-size: 13px;
+  }
+  .compareGroupHead {
+    padding: 12px 14px;
+    font-size: 15px;
+  }
+  .compareRow {
+    grid-template-columns: 1fr;
+    gap: 4px;
+    padding: 12px 14px;
+  }
+  .compareRowLabel {
+    font-size: 13px;
+    color: #6b7570;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+  .compareRowValue {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 4px 0;
+    border-top: 1px dashed #d6e6da;
+  }
+  .compareRowValue::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #256c43;
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}

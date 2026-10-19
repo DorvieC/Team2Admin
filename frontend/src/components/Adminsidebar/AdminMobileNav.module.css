@@ -1,0 +1,116 @@
+/* Всё это видно только на телефоне и планшете */
+.bar,
+.overlay,
+.sheet {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  /* Прячем боковое меню (перебивает его собственные мобильные стили) */
+  .hideOnMobile {
+    display: none !important;
+  }
+
+  /* Отступ снизу, чтобы фиксированная панель не закрывала подвал */
+  :global(body.has-admin-nav) {
+    padding-bottom: 68px;
+  }
+
+  .bar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 50;
+    display: flex;
+    justify-content: space-around;
+    background: #fefefe;
+    border-top: 1px solid #dde5df;
+    padding: 8px 4px calc(8px + env(safe-area-inset-bottom, 0px));
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .tab {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    background: none;
+    border: none;
+    padding: 4px 0;
+    color: #6b7a72;
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .tab span {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .tabActive {
+    color: #23753f;
+    font-weight: 700;
+  }
+
+  .overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 40;
+    display: block;
+    background: rgba(0, 0, 0, 0.35);
+  }
+
+  .sheet {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 60px;
+    z-index: 45;
+    display: block;
+    max-height: 70vh;
+    overflow-y: auto;
+    background: #fefefe;
+    border-radius: 20px 20px 0 0;
+    padding: 20px 16px 16px;
+    font-family: 'Montserrat', sans-serif;
+    color: #323f37;
+  }
+
+  .sheetTitle {
+    margin: 0 0 12px;
+    font-size: 20px;
+    font-weight: 800;
+  }
+
+  .sheetList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .sheetItem {
+    display: block;
+    padding: 12px 14px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #323f37;
+    text-decoration: none;
+  }
+  .sheetItemActive {
+    background: #3b7344;
+    color: #ffffff;
+  }
+  .sheetItemSoon {
+    opacity: 0.45;
+  }
+}

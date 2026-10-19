@@ -1,0 +1,214 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #fefefe;
+  font-family: 'Montserrat', sans-serif;
+  color: #323f37;
+}
+
+.container {
+  flex: 1;
+  padding: 0 40px;
+}
+
+.breadcrumbs {
+  padding: 14px 0 10px;
+  font-size: 18px;
+  font-weight: 500;
+}
+.breadcrumbs a {
+  color: #323f37;
+  text-decoration: none;
+}
+.breadcrumbs span { font-weight: 600; }
+
+.greenArea {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  background: #f1f9f1;
+  border-radius: 20px;
+  padding: 16px;
+  margin-bottom: 24px;
+  min-height: 600px;
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 800;
+  margin: 8px 0 24px;
+}
+
+/* Зелёная плашка "КАБІНЕТ АДМІНІСТРАТОРА" только на телефоне */
+.pill {
+  display: none;
+  align-self: flex-start;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: #3b7344;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+}
+
+/* ── Карточки статистики ── */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.statCard {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: #fefefe;
+  border: 1px solid #dde5df;
+  border-radius: 15px;
+  padding: 20px 16px;
+}
+
+.statTitle { font-size: 18px; font-weight: 500; }
+.statValue { font-size: 26px; font-weight: 800; }
+.statUp { font-size: 16px; font-weight: 700; color: #22a244; }
+.statDown { font-size: 16px; font-weight: 700; color: #dc2626; }
+
+/* ── Бейджи статусов ── */
+.badge {
+  flex-shrink: 0;
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.badgeGreen { background: #dff3e1; color: #23753f; }
+.badgeYellow { background: #fdf3dc; color: #8a6a1c; }
+.badgeRed { background: #fde2e1; color: #c0322d; }
+
+/* ── Карточки пользователей и продавцов ── */
+.entityGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.entityCard {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: #fefefe;
+  border: 1px solid #dde5df;
+  border-radius: 15px;
+  padding: 16px;
+}
+
+.entityHead {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #eef4ef;
+  border: 1px solid #dde5df;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.entityInfo {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.entityName {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.entitySub {
+  font-size: 13px;
+  font-weight: 500;
+  color: #60756b;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.rows {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 14px;
+}
+.rowLabel { color: #60756b; font-weight: 500; }
+.rowValue { font-weight: 700; text-align: right; }
+
+.outlineBtn {
+  width: 100%;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 800;
+  color: #323f37;
+  background: #fefefe;
+  border: 1px solid #323f37;
+  border-radius: 8px;
+  padding: 9px 12px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.outlineBtn:hover { background: #f1f9f1; }
+
+/* ── Адаптив ── */
+@media (max-width: 1100px) {
+  .stats { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 900px) {
+  .container { padding: 0 12px; }
+  .breadcrumbs { display: none; }
+  .greenArea {
+    flex-direction: column;
+    gap: 12px;
+    padding: 14px 12px;
+    border-radius: 16px;
+    min-height: 0;
+    margin: 12px 0 16px;
+  }
+  .main { width: 100%; display: flex; flex-direction: column; }
+  .pill { display: inline-block; margin-bottom: 8px; }
+  .title { font-size: 26px; margin: 0 0 14px; }
+
+  .stats { gap: 10px; margin-bottom: 14px; }
+  .statCard { padding: 12px; gap: 6px; border-radius: 12px; }
+  .statTitle { font-size: 12px; }
+  .statValue { font-size: 22px; }
+  .statUp, .statDown { font-size: 12px; }
+
+  .entityGrid { grid-template-columns: 1fr; gap: 14px; }
+}

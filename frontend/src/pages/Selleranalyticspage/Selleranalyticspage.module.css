@@ -1,0 +1,231 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #fefefe;
+  font-family: 'Montserrat', sans-serif;
+  color: #323f37;
+}
+
+.container {
+  flex: 1;
+  padding: 0 40px;
+}
+
+.breadcrumbs {
+  padding: 14px 0 10px;
+  font-size: 18px;
+  font-weight: 500;
+}
+.breadcrumbs a {
+  color: #323f37;
+  text-decoration: none;
+}
+.breadcrumbs span { font-weight: 600; }
+
+/* ── Зелёная область ── */
+.greenArea {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  background: #f1f9f1;
+  border-radius: 20px;
+  padding: 16px;
+  margin-bottom: 24px;
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 800;
+  margin: 8px 0 20px;
+}
+
+.sectionTitle {
+  font-size: 22px;
+  font-weight: 800;
+  margin: 0 0 16px;
+}
+
+/* ── Stats ── */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-bottom: 36px;
+}
+
+.statCard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+  background: #fefefe;
+  border: 1px solid #dde5df;
+  border-radius: 15px;
+  padding: 18px 16px;
+}
+
+.statTitle { font-size: 18px; font-weight: 500; }
+.statValue { font-size: 22px; font-weight: 800; }
+.statUp { font-size: 16px; font-weight: 700; color: #22a244; }
+.statDown { font-size: 16px; font-weight: 700; color: #dc2626; }
+
+/* ── Нижний блок ── */
+.bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+.col { min-width: 0; }
+
+/* ── График ── */
+.chart {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-around;
+  height: 245px;
+  box-sizing: border-box;
+  background: #fefefe;
+  border: 1px solid #dde5df;
+  border-radius: 15px;
+  padding: 18px 16px 14px;
+}
+
+.barCol {
+  flex: 1 1 0;
+  max-width: 62px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.barValue {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.barTrack {
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+  display: flex;
+  align-items: flex-end;
+}
+
+.bar {
+  width: 100%;
+  min-height: 6px;
+  background: #3b7344;
+  border-radius: 12px 12px 0 0;
+  transition: height 0.4s ease;
+}
+
+.barLabel {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* ── Топ товаров ── */
+.top {
+  list-style: none;
+  margin: 0;
+  padding: 8px 32px;
+  background: #fefefe;
+  border: 1px solid #dde5df;
+  border-radius: 15px;
+}
+
+.topItem {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  column-gap: 16px;
+  padding: 24px 0;
+  border-bottom: 1px solid #323f37;
+}
+.topItem:last-child { border-bottom: none; }
+
+.topName {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.topRevenue {
+  font-size: 18px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* ── Адаптив ── */
+@media (max-width: 1500px) {
+  .stats { gap: 16px; }
+  .statTitle { font-size: 16px; }
+  .topName, .topRevenue { font-size: 16px; }
+  .top { padding: 4px 24px; }
+  .topItem { padding: 20px 0; }
+}
+
+@media (max-width: 1280px) {
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .bottom { grid-template-columns: 1fr; gap: 28px; }
+}
+
+@media (max-width: 900px) {
+  .container { padding: 0 16px; }
+
+  .breadcrumbs {
+    padding: 12px 0 8px;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .greenArea {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+    padding: 12px;
+    border-radius: 16px;
+    margin-bottom: 16px;
+  }
+
+  .title { font-size: 24px; margin: 4px 0 14px; }
+  .sectionTitle { font-size: 19px; margin-bottom: 12px; }
+
+  .stats { gap: 12px; margin-bottom: 24px; }
+  .statCard { gap: 6px; padding: 14px; border-radius: 14px; }
+  .statTitle { font-size: 14px; line-height: 1.3; }
+  .statValue { font-size: 22px; }
+  .statUp, .statDown { font-size: 13px; }
+
+  .chart { height: 220px; gap: 4px; padding: 14px 8px 12px; border-radius: 14px; }
+  .barCol { gap: 8px; }
+  .barValue { font-size: 11px; }
+  .barLabel { font-size: 12px; }
+  .bar { border-radius: 8px 8px 0 0; }
+
+  .top { padding: 0 16px; border-radius: 14px; }
+  .topItem { padding: 14px 0; row-gap: 4px; }
+  .topName, .topRevenue { font-size: 15px; }
+}
+
+/* Телефон: название сверху, сумма под ним */
+@media (max-width: 480px) {
+  .topItem { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 340px) {
+  .stats { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bar { transition: none; }
+}

@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --color-primary:      #0a4329;
+  --color-primary-mid:  #256c43;
+  --color-dark:         #323f37;
+  --color-white:        #ffffff;
+  --color-bg:           #fdfffe;
+  --color-card:         #fefefe;
+  --color-border:       rgba(0, 0, 0, 0.15);
+  --color-text-muted:   #6b7280;
+  --color-badge-bg:     #e8f5ee;
+  --color-link:         #256c43;
+
+  --font:       'Montserrat', sans-serif;
+  --radius-sm:  8px;
+  --radius-md:  12px;
+  --radius-lg:  20px;
+  --shadow:     0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-btn: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+html, body {
+  font-family: var(--font);
+  background: var(--color-white);
+  color: var(--color-dark);
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: var(--font);
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+input {
+  font-family: var(--font);
+  outline: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}

@@ -1,0 +1,421 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #fefefe;
+  font-family: 'Montserrat', sans-serif;
+  color: #323f37;
+}
+
+.container {
+  flex: 1;
+  padding: 0 40px;
+}
+
+.breadcrumbs {
+  padding: 14px 0 10px;
+  font-size: 18px;
+  font-weight: 500;
+}
+.breadcrumbs a {
+  color: #323f37;
+  text-decoration: none;
+}
+.breadcrumbs span { font-weight: 600; }
+
+/* ── Зелёная область ── */
+.greenArea {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  background: #f1f9f1;
+  border-radius: 20px;
+  padding: 16px;
+  margin-bottom: 24px;
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 800;
+  margin: 8px 0 20px;
+}
+
+.empty {
+  background: #fefefe;
+  border: 1px solid #dde5df;
+  border-radius: 20px;
+  padding: 32px;
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* ── Stats ── */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.statCard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+  background: #fefefe;
+  border: 1px solid #dde5df;
+  border-radius: 15px;
+  padding: 18px 16px;
+}
+
+.statTitle { font-size: 18px; font-weight: 500; }
+.statValue { font-size: 22px; font-weight: 800; }
+.statUp { font-size: 16px; font-weight: 700; color: #22a244; }
+.statDown { font-size: 16px; font-weight: 700; color: #dc2626; }
+
+/* ── Таблица ── */
+.table {
+  --cols: minmax(0, 3fr) minmax(0, 1.3fr) minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1.6fr) minmax(0, 0.8fr);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.head,
+.row {
+  display: grid;
+  grid-template-columns: var(--cols);
+  align-items: center;
+  column-gap: 16px;
+}
+
+.head {
+  padding: 0 20px 4px;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+}
+.headCellLeft { text-align: left; }
+
+.row {
+  background: #fefefe;
+  border: 1px solid #dde5df;
+  border-radius: 20px;
+  padding: 12px 20px;
+}
+
+.cell {
+  min-width: 0;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+}
+.cellRole { text-align: left; }
+.cellAction { text-align: center; }
+
+/* ── Пользователь ── */
+.cellUser {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+
+.avatar {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #3b7344;
+  box-shadow: 0 0 0 3px #e3efe5;
+  color: #fff;
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.userName {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+.userEmail {
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+/* ── Статусы ── */
+.status {
+  display: inline-block;
+  min-width: 110px;
+  box-sizing: border-box;
+  padding: 3px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  white-space: nowrap;
+}
+.statusActive { background: #22a244; color: #fff; }
+.statusNew { background: #2f5d37; color: #fff; }
+.statusVerification {
+  background: #fbefd3;
+  border: 1px solid #d9c9a3;
+  color: #323f37;
+  letter-spacing: 0.12em;
+}
+.statusBlocked { background: #c62828; color: #fff; }
+
+/* ── Кнопка «Дії» ── */
+.actionBtn {
+  background: none;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 500;
+  color: #323f37;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.actionBtn:hover { background: #f1f9f1; text-decoration: underline; }
+.actionBtn:focus-visible {
+  outline: 2px solid #22a244;
+  outline-offset: 2px;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ── Адаптив ── */
+@media (max-width: 1500px) {
+  .stats { gap: 16px; }
+  .statTitle { font-size: 16px; }
+  .cell, .actionBtn { font-size: 16px; }
+  .userName, .userEmail { font-size: 15px; }
+  .head { font-size: 14px; }
+  .row, .head { column-gap: 12px; }
+  .row { padding: 12px 16px; }
+  .head { padding-left: 16px; padding-right: 16px; }
+  .status { min-width: 100px; }
+}
+
+@media (max-width: 1280px) {
+  .stats { grid-template-columns: repeat(2, 1fr); }
+
+  /* Карточки вместо таблицы */
+  .head { display: none; }
+
+  .table { gap: 12px; }
+
+  .row {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    row-gap: 14px;
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  .cellUser   { grid-column: 1 / 5;  grid-row: 1; }
+  .cellStatus { grid-column: 5 / -1; grid-row: 1; justify-self: end; }
+  .cellRole   { grid-column: 1 / 3;  grid-row: 2; }
+  .cellDate   { grid-column: 3 / 5;  grid-row: 2; }
+  .cellOrders { grid-column: 5 / -1; grid-row: 2; }
+  .cellAction { grid-column: 1 / -1; grid-row: 3; }
+
+  .cell { text-align: left; }
+  .cell[data-label]::before {
+    content: attr(data-label);
+    display: block;
+    margin-bottom: 2px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #6b786f;
+  }
+
+  .actionBtn {
+    width: 100%;
+    min-height: 44px;
+    border: 1px solid #dde5df;
+    font-size: 15px;
+    font-weight: 600;
+  }
+}
+
+@media (max-width: 900px) {
+  .container { padding: 0 16px; }
+
+  .breadcrumbs {
+    padding: 12px 0 8px;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .greenArea {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+    padding: 12px;
+    border-radius: 16px;
+    margin-bottom: 16px;
+  }
+
+  .title { font-size: 24px; margin: 4px 0 14px; }
+
+  .stats { gap: 12px; margin-bottom: 24px; }
+  .statCard { gap: 6px; padding: 14px; border-radius: 14px; }
+  .statTitle { font-size: 14px; line-height: 1.3; }
+  .statValue { font-size: 20px; }
+  .statUp, .statDown { font-size: 13px; }
+
+  .empty { padding: 24px 16px; font-size: 16px; border-radius: 16px; }
+}
+
+/* Телефон: пользователь, под ним статус, затем показатели */
+@media (max-width: 600px) {
+  .cellUser   { grid-column: 1 / -1; grid-row: 1; }
+  .cellStatus { grid-column: 1 / -1; grid-row: 2; justify-self: start; }
+  .cellRole   { grid-column: 1 / 3;  grid-row: 3; }
+  .cellDate   { grid-column: 3 / 5;  grid-row: 3; }
+  .cellOrders { grid-column: 5 / -1; grid-row: 3; }
+  .cellAction { grid-row: 4; }
+}
+
+@media (max-width: 340px) {
+  .stats { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .actionBtn { transition: none; }
+}
+
+/* ───────── Мобильный каркас админки (верхняя/нижняя панели из AdminSidebar) ───────── */
+@media (max-width: 900px) {
+  .siteChrome,
+  .breadcrumbs { display: none; }
+
+  .page {
+    background: #f1f9f1;
+    padding: calc(56px + env(safe-area-inset-top, 0px)) 0 calc(72px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .container { padding: 0; }
+
+  .greenArea {
+    gap: 12px;
+    padding: 12px;
+    background: transparent;
+    border-radius: 0;
+    margin-bottom: 0;
+  }
+
+  .title { font-size: 30px; margin: 0 0 4px; }
+}
+
+.initialsShort { display: none; }
+
+/* ───────── Телефон: карточки пользователей ───────── */
+@media (max-width: 900px) {
+  .stats { gap: 10px; margin-bottom: 12px; }
+  .statCard { gap: 6px; padding: 14px 16px; border-radius: 16px; }
+  .statTitle { font-size: 13px; line-height: 1.3; }
+  .statValue { font-size: 22px; }
+  .statUp, .statDown { font-size: 12px; font-weight: 600; }
+}
+
+@media (max-width: 600px) {
+  .table { gap: 12px; }
+
+  .row {
+    grid-template-columns: minmax(0, 1fr) auto;
+    row-gap: 10px;
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  .cellUser   { grid-column: 1; grid-row: 1; }
+  .cellStatus { grid-column: 2; grid-row: 1; justify-self: end; align-self: start; margin-top: 2px; }
+
+  /* строки «подпись — значение» */
+  .cellRole,
+  .cellDate,
+  .cellOrders {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    text-align: right;
+    font-size: 15px;
+    font-weight: 700;
+  }
+  .cellRole   { grid-row: 2; }
+  .cellDate   { grid-row: 3; }
+  .cellOrders { grid-row: 4; }
+
+  .cell[data-label]::before {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 500;
+    color: #5b6a60;
+  }
+
+  .cellAction { grid-column: 1 / -1; grid-row: 5; }
+  .actionBtn {
+    border: 1.5px solid #1f4d2b;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 800;
+    color: #1f4d2b;
+  }
+
+  .avatar {
+    width: 40px;
+    height: 40px;
+    background: #e3efe5;
+    color: #1f4d2b;
+    box-shadow: none;
+    border: 1px solid #cfe3d2;
+    font-size: 15px;
+  }
+  .initialsFull { display: none; }
+  .initialsShort { display: inline; }
+
+  .userName { font-size: 16px; font-weight: 800; }
+  .userEmail { font-size: 13px; color: #6b786f; }
+
+  /* мягкие бейджи статуса */
+  .status {
+    min-width: 0;
+    padding: 3px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+  }
+  .statusActive { background: #d9efd9; color: #1f6b2e; }
+  .statusNew { background: #fbefc9; color: #8a5a00; }
+  .statusVerification { background: #fbefd3; border: none; color: #8a5a00; letter-spacing: 0; }
+  .statusBlocked { background: #fde2e2; color: #c62828; }
+}

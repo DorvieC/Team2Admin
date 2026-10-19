@@ -1,0 +1,1267 @@
+.page {
+  background: #ffffff;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.inner {
+  max-width: 1980px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.heroWrap {
+  padding: 0 73px;
+  margin-top: 36px;
+  overflow: hidden;
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 517px;
+  background: rgba(241, 249, 241, 0.83);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.heroContent {
+  position: absolute;
+  left: 114px;
+  top: 0;
+  width: 700px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 63px;
+  z-index: 2;
+}
+
+.heroBadge {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 32px;
+  color: #2e834c;
+  letter-spacing: 3.2px;
+  margin-bottom: 44px;
+}
+
+.heroTitle {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 48px;
+  line-height: 58px;
+  color: #323f37;
+  white-space: pre-wrap;
+  margin-bottom: 21px;
+}
+
+.heroSub {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.4;
+  color: #323f37;
+  margin-bottom: 35px;
+  white-space: nowrap;
+}
+
+.heroBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: 332px;
+  height: 73px;
+  background: #23753f;
+  border-radius: 12px;
+  box-shadow: 0px 4px 4px rgba(0,0,0,0.25), inset 0px 4px 4px rgba(0,0,0,0.25);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  color: #ffffff;
+  padding-left: 31px;
+  cursor: pointer;
+  border: none;
+}
+
+.heroArrow {
+  width: 24px;
+  height: 24px;
+}
+
+.heroCity {
+  position: absolute;
+  right: 151px;
+  top: 0;
+  width: 647px;
+  height: 416px;
+  object-fit: cover;
+  z-index: 0;
+  mix-blend-mode: multiply;
+}
+
+.heroCar {
+  position: absolute;
+  right: 490px;
+  bottom: 40px;
+  width: 329px;
+  height: 224px;
+  object-fit: cover;
+  transform: rotate(0.54deg);
+  z-index: 1;
+  mix-blend-mode: multiply;
+}
+
+.heroDeliver {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 461px;
+  height: 517px;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.featuresWrap {
+  padding: 24px 76px 0;
+  overflow: hidden;
+}
+
+.featuresRow {
+  display: flex;
+  gap: 47px;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+
+.featCard {
+  flex: 1 1 300px;
+  max-width: 430px;
+  min-width: 220px;
+  height: 117px;
+  background: rgba(244, 246, 245, 0.9);
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  position: relative;
+}
+
+.featIcon {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  margin-left: 43px;
+  flex-shrink: 0;
+}
+
+.featIconRotate {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  margin-left: 43px;
+  flex-shrink: 0;
+  transform: rotate(42.62deg);
+}
+
+.featIconShield {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  margin-left: 43px;
+  flex-shrink: 0;
+}
+
+.featIconHead {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  margin-left: 52px;
+  flex-shrink: 0;
+}
+
+.featText {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 28px;
+  color: #3e574c;
+  margin-left: 18px;
+  max-width: 181px;
+}
+
+.sectionWrap {
+  padding: 0 79px;
+  margin-top: 32px;
+  overflow: hidden;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  margin-bottom: 20px;
+}
+
+.sectionTitle {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  color: #323f37;
+}
+
+.sectionAll {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: #323f37;
+  cursor: pointer;
+}
+
+.sectionAll:hover {
+  color: #0a4329;
+  text-decoration: underline;
+}
+
+.featuredGrid {
+  display: flex;
+  gap: 47px;
+  flex-wrap: wrap;
+}
+
+.prodCard {
+  flex: 1 1 300px;
+  max-width: 430px;
+  height: 430px;
+  background: #fffeff;
+  border: 1px solid rgba(13,13,13,0.28);
+  border-radius: 20px;
+  position: relative;
+  overflow: visible;
+}
+
+.prodCardImg {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  width: calc(100% - 2px);
+  height: 255px;
+  object-fit: cover;
+  border-radius: 20px 20px 0 0;
+}
+
+.prodBadge {
+  position: absolute;
+  top: 11px;
+  left: 17px;
+  height: 23px;
+  min-width: 68px;
+  border-radius: 5px;
+  border: 2px solid rgba(0,0,0,0.11);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: 3.84px;
+  color: #fefefe;
+  padding: 0 6px;
+}
+
+.badgeRed {
+  background: linear-gradient(180deg, #ff6005 17.79%, #b34f16 100%);
+}
+
+.badgeYellow {
+  background: linear-gradient(180deg, #ffd905 17.79%, #ff6208 100%);
+  color: #323f37;
+}
+
+.badgeGreen {
+  background: #44ab67;
+  letter-spacing: 3.2px;
+  font-size: 10px;
+}
+
+.prodStars {
+  position: absolute;
+  top: 271px;
+  left: 17px;
+  width: 182px;
+  height: 27px;
+}
+
+.prodName {
+  position: absolute;
+  top: 305px;
+  left: 13px;
+  right: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 1.2;
+  color: #323f37;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.prodPriceRow {
+  position: absolute;
+  bottom: 9px;
+  left: 17px;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.prodPrice {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: #323f37;
+}
+
+.prodOldPrice {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  color: #323f37;
+  text-decoration: line-through;
+  margin-left: 8px;
+}
+
+.prodCartBtn {
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+  margin-right: 12px;
+  margin-bottom: 2px;
+}
+
+.rowCards {
+  display: flex;
+  gap: 45px;
+  flex-wrap: wrap;
+}
+
+.rowCard {
+  flex: 1 1 280px;
+  max-width: 430px;
+  height: 117px;
+  background: #fffeff;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.rowCardImg {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  width: 162px;
+  height: 115px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.rowCardName {
+  position: absolute;
+  left: 186px;
+  right: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  color: #000000;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.rowCardPrice {
+  position: absolute;
+  left: 190px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: #000000;
+}
+
+.newGrid {
+  display: flex;
+  gap: 47px;
+  flex-wrap: wrap;
+}
+
+.newCard {
+  flex: 1 1 280px;
+  max-width: 430px;
+  height: 300px;
+  position: relative;
+  margin-top: 18px;
+}
+
+.newCardBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 280px;
+  background: #fffeff;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 20px;
+}
+
+.newCardImg {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  width: calc(100% - 2px);
+  height: 175px;
+  object-fit: cover;
+  border-radius: 15px 15px 0 0;
+}
+
+.newNumBadge {
+  position: absolute;
+  top: 0;
+  left: 13px;
+  width: 51px;
+  height: 25px;
+  background: #23753f;
+  border-radius: 5px;
+  box-shadow: 0px 4px 4px rgba(0,0,0,0.25), inset 0px 4px 4px rgba(0,0,0,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 16px;
+  letter-spacing: 5.12px;
+  color: #fefefe;
+  z-index: 2;
+}
+
+.newCardName {
+  position: absolute;
+  top: 195px;
+  left: 18px;
+  right: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  color: #000000;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.newCardBottom {
+  position: absolute;
+  top: 235px;
+  left: 19px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.newCardPrice {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: #000000;
+}
+
+.newCardStars {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+}
+
+.starImg {
+  width: 24px;
+  height: 23px;
+  object-fit: cover;
+}
+
+.starHalf {
+  width: 23px;
+  height: 23px;
+}
+
+.smallCards {
+  display: flex;
+  gap: 47px;
+  flex-wrap: wrap;
+}
+
+.smallCard {
+  flex: 1 1 280px;
+  max-width: 430px;
+  height: 155px;
+  background: #fffeff;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 25px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.smallCardImg {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 148px;
+  height: 153px;
+  object-fit: cover;
+  border-radius: 25px;
+  flex-shrink: 0;
+}
+
+.smallCardName {
+  position: absolute;
+  top: 30px;
+  left: 160px;
+  right: 12px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.35;
+  color: #000000;
+  white-space: normal;
+  word-break: break-word;
+}
+
+.smallCardPrice {
+  position: absolute;
+  top: 98px;
+  left: 160px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: #000000;
+}
+
+.bottomBannerWrap {
+  padding: 0 75px;
+  margin-top: 32px;
+}
+
+.bottomBanner {
+  display: flex;
+  gap: 47px;
+  height: 198px;
+}
+
+.newsletter {
+  flex: 1 1 400px;
+  max-width: 698px;
+  min-width: 300px;
+  height: 198px;
+  background: #F1F9F1;
+  border-radius: 20px;
+  position: relative;
+  padding: 29px 73px 0 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.newsletterInner {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 0 16px;
+  flex: 1;
+}
+
+.newsletterMailIcon {
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.newsletterRight {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.newsletterTitle {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 32px;
+  color: #3e574c;
+  max-width: 337px;
+}
+
+.newsletterForm {
+  display: flex;
+  height: 65px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.18);
+}
+
+.newsletterInput {
+  flex: 1;
+  min-width: 0;
+  padding: 0 16px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: #3e574c;
+  background: rgba(255,255,255,0.8);
+  border: none;
+}
+
+.newsletterBtn {
+  width: 217px;
+  height: 65px;
+  background: #23753f;
+  border-radius: 12px;
+  box-shadow: 0px 4px 4px rgba(0,0,0,0.25), inset 0px 4px 4px rgba(0,0,0,0.25);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.stats {
+  flex: 1;
+  height: 198px;
+  background: #F6F7F6;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 36px;
+}
+
+.statItem {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.statIcon {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.statIconSm {
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.statText {
+  display: flex;
+  flex-direction: column;
+}
+
+.statNum {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: #3e574c;
+  line-height: 28px;
+}
+
+.statLabel {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: #3e574c;
+  line-height: 28px;
+}
+
+.footer {
+  border-top: 1px solid rgba(0,0,0,0.12);
+  margin-top: 40px;
+  padding: 40px 77px 0;
+}
+
+.footerTop {
+  display: flex;
+  gap: 0;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(0,0,0,0.12);
+}
+
+.footerLogo {
+  display: flex;
+  flex-direction: column;
+  margin-right: 100px;
+  flex-shrink: 0;
+}
+
+.footerLogoImg {
+  width: 279px;
+  height: 91px;
+  object-fit: contain;
+}
+
+.footerLinks {
+  display: flex;
+  gap: 118px;
+}
+
+.footerLinkGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.footerLinkTitle {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 20px;
+  color: #323f37;
+  line-height: 22px;
+}
+
+.footerLinkList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.footerLink {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  color: #323f37;
+  line-height: 22px;
+  cursor: pointer;
+}
+
+.footerLink:hover {
+  color: #256c43;
+}
+
+.footerSocial {
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+}
+
+.socialTitle {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: #323f37;
+  text-align: center;
+}
+
+.socialIcons {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  justify-content: center;
+}
+
+.socialBtn {
+  width: auto;
+  height: auto;
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  transition: opacity 0.2s;
+}
+
+.socialBtn:hover {
+  opacity: 0.75;
+}
+
+.footerBottom {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 0 24px;
+}
+
+.copyright {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  color: #323f37;
+}
+
+.prodCardLink {
+  text-decoration: none;
+  color: inherit;
+  display: contents;
+}
+
+.newCardLink {
+  text-decoration: none;
+  color: inherit;
+  display: contents;
+}
+
+.smallCardLink {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.prodCardSkeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 16px;
+  height: 340px;
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.noProducts {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 40px;
+  color: #666;
+  font-size: 16px;
+}
+
+/* =====================================================
+   АДАПТИВ
+   ===================================================== */
+
+/* ---------- Ноутбук / небольшой десктоп ---------- */
+@media (max-width: 1440px) {
+  .heroWrap { padding: 0 32px; }
+  .hero { height: auto; min-height: 380px; padding: 40px 0; }
+  .heroContent { position: relative; left: auto; top: auto; height: auto; padding: 40px; width: 55%; box-sizing: border-box; }
+  .heroCity    { width: 45%; height: auto; top: 0; left: auto; right: 0; position: absolute; }
+  .heroCar     { display: none; }
+  .heroDeliver { width: 280px; height: 100%; }
+  .heroBadge   { margin-bottom: 24px; }
+
+  /* 4 карточки в ряд */
+  .featuresWrap { padding: 16px 32px 0; }
+  .featuresRow  { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+  .featCard     { flex: none; max-width: none; min-width: 0; }
+  .featIcon,
+  .featIconRotate,
+  .featIconShield { margin-left: 24px; }
+  .featIconHead   { margin-left: 28px; }
+  .featText       { margin-left: 14px; font-size: 15px; }
+
+  .sectionWrap { padding: 0 32px; margin-top: 24px; }
+
+  .featuredGrid,
+  .newGrid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .prodCard,
+  .newCard { flex: none; max-width: none; min-width: 0; }
+
+  /* горизонтальные карточки: по 2 в ряд */
+  .rowCards,
+  .smallCards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .rowCard,
+  .smallCard { flex: none; max-width: none; min-width: 0; }
+
+  .bottomBannerWrap { padding: 0 32px; }
+  .bottomBanner { gap: 16px; }
+  .newsletter { flex: 0 0 400px; }
+
+  .footer { padding: 40px 32px 0; }
+  .footerTop { flex-wrap: wrap; gap: 32px; }
+  .footerLogo { margin-right: 0; }
+  .footerLinks { gap: 40px; }
+  .footerLink,
+  .footerLinkTitle,
+  .socialTitle { font-size: 18px; }
+}
+
+/* ---------- Планшет, ландшафт ---------- */
+@media (max-width: 1180px) {
+  .featuresRow { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .featIcon,
+  .featIconRotate,
+  .featIconShield { margin-left: 32px; }
+  .featIconHead   { margin-left: 36px; }
+}
+
+/* ---------- Планшет ---------- */
+@media (max-width: 1024px) {
+  .heroContent { width: 60%; padding: 30px; }
+  .heroTitle   { font-size: 36px; line-height: 44px; }
+  .heroSub     { font-size: 18px; white-space: normal; }
+  .heroBtn     { width: auto; padding: 0 24px; height: 56px; font-size: 18px; }
+  .heroDeliver { width: 200px; }
+
+  .featuredGrid,
+  .newGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .bottomBanner { flex-direction: column; height: auto; }
+  .newsletter   { flex: none; width: 100%; max-width: none; height: auto; padding: 24px 20px; box-sizing: border-box; }
+  .stats        { height: auto; padding: 24px 20px; }
+
+  .footerLinks  { gap: 24px 40px; flex-wrap: wrap; }
+}
+
+/* =====================================================
+   ТЕЛЕФОН (до 768px)
+   ===================================================== */
+@media (max-width: 768px) {
+  .inner { padding: 0; }
+
+  /* ---------- Hero: текст сверху, иллюстрация полосой внизу ---------- */
+  .heroWrap { padding: 0 16px; margin-top: 16px; }
+
+  .hero {
+    min-height: 0;
+    padding: 0 0 190px;
+    border-radius: 18px;
+  }
+
+  .heroContent {
+    width: 100%;
+    padding: 24px 20px 0;
+  }
+
+  .heroBadge {
+    font-size: 13px;
+    letter-spacing: 2.4px;
+    margin-bottom: 10px;
+  }
+
+  .heroTitle {
+    font-size: 27px;
+    line-height: 34px;
+    margin-bottom: 10px;
+  }
+
+  .heroSub {
+    font-size: 15px;
+    line-height: 1.45;
+    white-space: normal;
+    margin-bottom: 18px;
+    max-width: 320px;
+  }
+
+  .heroBtn {
+    width: auto;
+    height: 48px;
+    padding: 0 22px;
+    font-size: 16px;
+    border-radius: 12px;
+    gap: 8px;
+  }
+
+  .heroArrow { width: 18px; height: 18px; }
+
+  .heroCity {
+    display: block;
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    object-position: center bottom;
+  }
+
+  .heroDeliver {
+    display: block;
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    right: 0;
+    width: auto;
+    max-width: 55%;
+    height: 190px;
+    object-fit: contain;
+    object-position: right bottom;
+  }
+
+  .heroCar { display: none; }
+
+  /* ---------- Преимущества: сетка 2×2 ---------- */
+  .featuresWrap { padding: 16px 16px 0; }
+
+  .featuresRow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .featCard {
+    height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 10px;
+    padding: 14px 12px;
+    box-sizing: border-box;
+    border-radius: 14px;
+  }
+
+  .featIcon,
+  .featIconRotate,
+  .featIconShield,
+  .featIconHead {
+    width: 36px;
+    height: 36px;
+    margin-left: 0;
+  }
+
+  .featText {
+    margin-left: 0;
+    max-width: none;
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  /* ---------- Секции ---------- */
+  .sectionWrap { padding: 0 16px; margin-top: 28px; }
+
+  .sectionHeader {
+    height: auto;
+    margin-bottom: 12px;
+    gap: 12px;
+  }
+
+  .sectionTitle { font-size: 20px; }
+
+  .sectionAll {
+    font-size: 14px;
+    white-space: nowrap;
+    padding: 8px 0;
+  }
+
+  /* ---------- Карусели со свайпом ---------- */
+  .featuredGrid,
+  .newGrid,
+  .rowCards,
+  .smallCards {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 12px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    margin: 0 -16px;
+    padding: 0 16px 8px;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 0 16px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    overscroll-behavior-x: contain;
+  }
+
+  .featuredGrid::-webkit-scrollbar,
+  .newGrid::-webkit-scrollbar,
+  .rowCards::-webkit-scrollbar,
+  .smallCards::-webkit-scrollbar { display: none; }
+
+  .prodCard,
+  .newCard,
+  .rowCard,
+  .smallCard {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    max-width: none;
+  }
+
+  .prodCard  { width: min(74vw, 300px); }
+  .newCard   { width: min(68vw, 270px); }
+  .rowCard   { width: min(84vw, 340px); }
+  .smallCard { width: min(84vw, 340px); }
+
+  .prodName,
+  .newCardName { font-size: 18px; }
+
+  .prodPrice,
+  .prodOldPrice { font-size: 18px; }
+
+  .rowCardName { font-size: 17px; }
+  .smallCardName { font-size: 16px; }
+
+  /* ---------- Подписка и статистика ---------- */
+  .bottomBannerWrap { padding: 0 16px; margin-top: 28px; }
+  .bottomBanner { gap: 12px; }
+
+  .newsletter {
+    padding: 20px 16px;
+    border-radius: 18px;
+    min-width: 0;
+  }
+
+  .newsletterInner {
+    padding: 0;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .newsletterMailIcon { width: 40px; height: 40px; margin-top: 0; }
+
+  .newsletterTitle {
+    font-size: 17px;
+    line-height: 24px;
+    max-width: none;
+  }
+
+  .newsletterForm {
+    flex-direction: column;
+    height: auto;
+    gap: 10px;
+    border: none;
+    overflow: visible;
+  }
+
+  /* 16px — чтобы iOS не зумил страницу при фокусе */
+  .newsletterInput {
+    height: 50px;
+    flex: none;
+    font-size: 16px;
+    border: 1px solid rgba(0,0,0,0.18);
+    border-radius: 12px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .newsletterBtn {
+    width: 100%;
+    height: 50px;
+    font-size: 17px;
+  }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    padding: 20px 8px;
+    border-radius: 18px;
+    justify-content: normal;
+  }
+
+  .statItem {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+
+  .statIcon,
+  .statIconSm { width: 40px; height: 40px; }
+
+  .statText { align-items: center; }
+  .statNum  { font-size: 17px; line-height: 22px; }
+  .statLabel { font-size: 12px; line-height: 16px; }
+
+  /* ---------- Подвал ---------- */
+  .footer { padding: 28px 20px 0; margin-top: 28px; }
+
+  .footerTop {
+    flex-direction: column;
+    gap: 28px;
+    padding-bottom: 28px;
+  }
+
+  .footerLogoImg { width: 180px; height: 59px; }
+
+  .footerLinks {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px 20px;
+    width: 100%;
+  }
+
+  .footerSocial { margin-left: 0; align-items: flex-start; }
+  .socialTitle  { text-align: left; }
+  .socialIcons  { justify-content: flex-start; }
+  .socialBtn svg { width: 44px; height: 44px; }
+}
+
+/* ---------- Малые телефоны ---------- */
+@media (max-width: 480px) {
+  .heroWrap { padding: 0 12px; }
+  .heroTitle { font-size: 24px; line-height: 31px; }
+  .heroBtn { width: 100%; justify-content: center; }
+
+  .featuresWrap,
+  .sectionWrap,
+  .bottomBannerWrap { padding-left: 12px; padding-right: 12px; }
+
+  .featuredGrid,
+  .newGrid,
+  .rowCards,
+  .smallCards {
+    margin: 0 -12px;
+    padding: 0 12px 8px;
+    scroll-padding: 0 12px;
+  }
+
+  .footer { padding: 24px 16px 0; }
+
+  .footerLinks {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .footerLinkGroup { gap: 6px; }
+  .footerLinkTitle,
+  .socialTitle { font-size: 17px; }
+  .footerLinkList { gap: 0; }
+
+  .footerLink {
+    font-size: 16px;
+    line-height: 1.3;
+    padding: 10px 0;
+    overflow-wrap: anywhere;
+  }
+
+  .footerBottom { padding: 14px 0 20px; }
+  .copyright { font-size: 14px; }
+}
+
+/* ---------- Самые узкие (320–360px) ---------- */
+@media (max-width: 360px) {
+  .heroTitle { font-size: 22px; line-height: 29px; }
+  .featText { font-size: 12px; }
+  .statLabel { font-size: 11px; }
+}

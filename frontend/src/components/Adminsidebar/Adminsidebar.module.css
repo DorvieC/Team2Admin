@@ -1,0 +1,276 @@
+/* ───────── Десктоп: боковое меню ───────── */
+.sidebar {
+  width: 313px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  background: #fefefe;
+  border: 1px solid #dde5df;
+  border-radius: 20px;
+  padding: 24px 20px;
+  font-family: 'Montserrat', sans-serif;
+  color: #323f37;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 800;
+  margin: 0 0 20px;
+}
+
+.menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #323f37;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.item:hover { background: #f1f9f1; }
+
+.itemSoon,
+.itemSoon:hover {
+  opacity: 0.45;
+  background: none;
+  cursor: default;
+}
+
+.item:focus-visible { outline: 2px solid #22a244; outline-offset: 2px; }
+
+.itemActive,
+.itemActive:hover {
+  background: #3b7344;
+  color: #ffffff;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* На десктопе мобильных элементов нет */
+.pill,
+.topBar,
+.tabBar,
+.overlay { display: none; }
+
+/* ───────── Телефон / планшет ───────── */
+@keyframes sheetUp {
+  from { transform: translateY(32px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+@media (max-width: 900px) {
+  .sidebar { display: none; }
+
+  /* плашка над заголовком */
+  .pill {
+    display: inline-block;
+    align-self: flex-start;
+    margin-top: 4px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: #1f4d2b;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* верхняя панель */
+  .topBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    box-sizing: border-box;
+    height: calc(56px + env(safe-area-inset-top, 0px));
+    padding: env(safe-area-inset-top, 0px) 8px 0 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fefefe;
+    border-bottom: 1px solid #e3ebe5;
+    font-family: 'Montserrat', sans-serif;
+    color: #323f37;
+  }
+
+  .topLeft,
+  .topRight {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .logo {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+  .logoName {
+    font-size: 20px;
+    font-weight: 800;
+    color: #1f4d2b;
+    letter-spacing: -0.01em;
+  }
+  .logoTag {
+    margin-top: 2px;
+    font-size: 10px;
+    font-weight: 600;
+    color: #3b7344;
+  }
+  .logoImg { height: 32px; width: auto; display: block; }
+
+  .iconBtn {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    background: none;
+    border: none;
+    border-radius: 10px;
+    color: #323f37;
+    cursor: pointer;
+  }
+  .iconBtn:hover { background: #f1f9f1; }
+
+  .langBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 44px;
+    padding: 0 8px;
+    background: none;
+    border: none;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    color: #323f37;
+    cursor: pointer;
+  }
+  .langBtn:hover { background: #f1f9f1; }
+
+  .iconBtn:focus-visible,
+  .langBtn:focus-visible,
+  .tab:focus-visible {
+    outline: 2px solid #22a244;
+    outline-offset: -2px;
+  }
+
+  /* нижнее меню */
+  .tabBar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    background: #fefefe;
+    border-top: 1px solid #e3ebe5;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .tab {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    min-height: 64px;
+    padding: 6px 2px;
+    background: none;
+    border: none;
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 600;
+    color: #4a5a50;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .tabActive { color: #3b7344; font-weight: 800; }
+  .tabSoon { opacity: 0.45; cursor: default; }
+
+  /* выезжающее меню */
+  .overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    align-items: flex-end;
+    background: rgba(50, 63, 55, 0.45);
+  }
+
+  .sheet {
+    width: 100%;
+    box-sizing: border-box;
+    max-height: 85vh;
+    max-height: 85dvh;
+    overflow-y: auto;
+    padding: 16px 16px calc(20px + env(safe-area-inset-bottom, 0px));
+    background: #fefefe;
+    border-radius: 20px 20px 0 0;
+    font-family: 'Montserrat', sans-serif;
+    color: #323f37;
+    animation: sheetUp 0.25s ease-out;
+  }
+
+  .sheetHead {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+  .sheetTitle {
+    margin: 0;
+    padding-left: 4px;
+    font-size: 22px;
+    font-weight: 800;
+  }
+
+  .sheetList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .sheetList .item {
+    display: flex;
+    align-items: center;
+    min-height: 52px;
+    font-size: 17px;
+  }
+}
+
+@media (min-width: 901px) {
+  .overlay { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sheet { animation: none; }
+}

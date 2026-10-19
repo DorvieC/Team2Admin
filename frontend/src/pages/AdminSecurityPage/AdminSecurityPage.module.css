@@ -1,0 +1,167 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #fefefe;
+  font-family: 'Montserrat', sans-serif;
+  color: #323f37;
+}
+
+.container {
+  flex: 1;
+  padding: 0 40px;
+}
+
+.breadcrumbs {
+  padding: 14px 0 10px;
+  font-size: 18px;
+  font-weight: 500;
+}
+.breadcrumbs a {
+  color: #323f37;
+  text-decoration: none;
+}
+.breadcrumbs span { font-weight: 600; }
+
+.greenArea {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  background: #f1f9f1;
+  border-radius: 20px;
+  padding: 16px;
+  margin-bottom: 24px;
+  min-height: 600px;
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 800;
+  margin: 8px 0 24px;
+}
+
+/* ── Карточки ── */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.statCard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #fefefe;
+  border: 1px solid #dde5df;
+  border-radius: 15px;
+  padding: 20px 16px;
+}
+
+.statTitle { font-size: 18px; font-weight: 500; }
+.statValue { font-size: 26px; font-weight: 800; }
+.statUp { font-size: 18px; font-weight: 700; color: #22a244; }
+.statDown { font-size: 18px; font-weight: 700; color: #dc2626; }
+
+/* ── Таблица ── */
+.tableCard {
+  background: #fefefe;
+  border: 1px solid #dde5df;
+  border-radius: 15px;
+  padding: 8px 16px 16px;
+}
+
+.tableScroll {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  min-width: 780px;
+  border-collapse: collapse;
+}
+
+.table th {
+  text-align: left;
+  font-size: 18px;
+  font-weight: 800;
+  padding: 14px 8px;
+  border-bottom: 1px solid #323f37;
+}
+
+.table td {
+  font-size: 18px;
+  font-weight: 700;
+  padding: 28px 8px 14px;
+  border-bottom: 1px solid #323f37;
+}
+
+/* Email, IP и ключ API в макете обычным весом */
+.table td.normal {
+  font-weight: 500;
+}
+
+/* ── Бейджи уровня ── */
+.badge {
+  display: inline-block;
+  min-width: 112px;
+  text-align: center;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.badgeWarning {
+  background: #fdf3dc;
+  border: 1px solid #e6d9b5;
+  color: #323f37;
+}
+
+.badgeCritical {
+  background: #d63a35;
+  color: #ffffff;
+}
+
+.badgeInfo {
+  background: #3b7344;
+  color: #ffffff;
+}
+
+/* ── Адаптив ── */
+@media (max-width: 1100px) {
+  .stats { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 900px) {
+  .siteChrome,
+  .breadcrumbs { display: none; }
+
+  .page {
+    background: #f1f9f1;
+    padding: calc(56px + env(safe-area-inset-top, 0px)) 0 calc(72px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .container { padding: 0 16px; }
+  .greenArea { flex-direction: column; min-height: 0; gap: 12px; padding: 12px; }
+  .title { font-size: 24px; }
+}
+
+@media (max-width: 480px) {
+  .stats { grid-template-columns: 1fr; }
+}
+.placeholderNote {
+  background: #fefefe;
+  border: 1px solid #dde5df;
+  border-radius: 16px;
+  padding: 28px;
+  font-size: 17px;
+  color: #6b7a70;
+  line-height: 1.5;
+}

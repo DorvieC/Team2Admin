@@ -1,0 +1,205 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #fefefe;
+  font-family: 'Montserrat', sans-serif;
+  color: #323f37;
+}
+
+.container {
+  flex: 1;
+  padding: 0 40px;
+}
+
+.breadcrumbs {
+  padding: 14px 0 10px;
+  font-size: 18px;
+  font-weight: 500;
+}
+.breadcrumbs a {
+  color: #323f37;
+  text-decoration: none;
+}
+.breadcrumbs span { font-weight: 600; }
+
+/* ── Зелёная область ── */
+.greenArea {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  background: #f1f9f1;
+  border-radius: 20px;
+  padding: 16px;
+  margin-bottom: 24px;
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 800;
+  margin: 8px 0 20px;
+}
+
+.sectionTitle {
+  font-size: 22px;
+  font-weight: 800;
+  margin: 0 0 16px;
+}
+
+/* ── Stats ── */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.statCard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+  background: #fefefe;
+  border: 1px solid #dde5df;
+  border-radius: 15px;
+  padding: 18px 16px;
+}
+
+.statTitle { font-size: 18px; font-weight: 500; }
+.statValue { font-size: 22px; font-weight: 800; }
+.statUp { font-size: 16px; font-weight: 700; color: #22a244; }
+.statDown { font-size: 16px; font-weight: 700; color: #dc2626; }
+
+/* ── Список ── */
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  column-gap: 32px;
+  background: #fefefe;
+  border: 1px solid #dde5df;
+  border-radius: 20px;
+  padding: 16px 20px;
+}
+
+.name {
+  min-width: 0;
+  font-size: 18px;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
+.qty {
+  min-width: 70px;
+  text-align: right;
+  font-size: 18px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.orderBtn {
+  min-width: 146px;
+  padding: 8px 16px;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  color: #323f37;
+  background: #fefefe;
+  border: 1px solid #dde5df;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+.orderBtn:hover { background: #f1f9f1; border-color: #3b7344; }
+.orderBtn:focus-visible {
+  outline: 2px solid #22a244;
+  outline-offset: 2px;
+}
+
+.empty {
+  background: #fefefe;
+  border: 1px solid #dde5df;
+  border-radius: 20px;
+  padding: 32px;
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+  margin: 0;
+}
+
+/* ── Адаптив ── */
+@media (max-width: 1500px) {
+  .stats { gap: 16px; }
+  .statTitle { font-size: 16px; }
+  .name, .qty { font-size: 16px; }
+  .row { column-gap: 20px; }
+}
+
+@media (max-width: 1280px) {
+  .stats { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 900px) {
+  .container { padding: 0 16px; }
+
+  .breadcrumbs {
+    padding: 12px 0 8px;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .greenArea {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+    padding: 12px;
+    border-radius: 16px;
+    margin-bottom: 16px;
+  }
+
+  .title { font-size: 24px; margin: 4px 0 14px; }
+  .sectionTitle { font-size: 19px; margin-bottom: 12px; }
+
+  .stats { gap: 12px; margin-bottom: 24px; }
+  .statCard { gap: 6px; padding: 14px; border-radius: 14px; }
+  .statTitle { font-size: 14px; line-height: 1.3; }
+  .statValue { font-size: 22px; }
+  .statUp, .statDown { font-size: 13px; }
+
+  .list { gap: 12px; }
+  .row { padding: 14px 16px; border-radius: 16px; }
+  .empty { padding: 24px 16px; font-size: 16px; border-radius: 16px; }
+}
+
+/* Телефон: название сверху, остаток и кнопка под ним */
+@media (max-width: 600px) {
+  .row {
+    grid-template-columns: minmax(0, 1fr) auto;
+    row-gap: 12px;
+  }
+  .name { grid-column: 1 / -1; }
+  .qty { text-align: left; font-weight: 700; }
+  .orderBtn { min-width: 0; min-height: 44px; padding: 0 22px; }
+}
+
+@media (max-width: 340px) {
+  .stats { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orderBtn { transition: none; }
+}
