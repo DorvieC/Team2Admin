@@ -291,6 +291,64 @@ namespace BlitzMall_Backend.Services
                 .ToListAsync();
         }
 
+        public async Task<List<OrderDto>> GetBySellerAsync()
+        {
+            var userId = GetUserId();
+
+            if (userId == null)
+            {
+                throw new UnauthorizedAccessException("Not authenticated.");
+            }
+
+            var seller = await _db.Sellers.FirstOrDefaultAsync(s => s.UserId == userId.Value);
+
+            if (seller == null)
+            {
+                return new List<OrderDto>();
+            }
+
+            return await _db.Orders
+                .Where(o => o.OrderItems!.Any(i => i.Product != null && i.Product.SellerId == seller.Id))
+                .OrderByDescending(o => o.CreatedDate)
+                .Select(o => new OrderDto
+                {
+                    Id = o.Id,
+                    UserId = o.UserId,
+                    TotalAmount = o.OrderItems!
+                        .Where(i => i.Product != null && i.Product.SellerId == seller.Id)
+                        .Sum(i => i.Quantity * i.UnitPrice),
+                    OrderStatus = o.OrderStatus ?? string.Empty,
+                    DeliveryAddress = o.Address != null
+                        ? o.Address.Street ?? string.Empty
+                        : string.Empty,
+                    Phone = o.Phone ?? string.Empty,
+                    Comment = o.Comment,
+                    PaymentMethod = o.Payments!
+                        .Select(p => p.Method)
+                        .FirstOrDefault(),
+                    CreatedDate = o.CreatedDate,
+                    UpdatedDate = o.UpdatedDate,
+                    AddressId = o.AddressId,
+
+                    Items = o.OrderItems!
+                        .Where(i => i.Product != null && i.Product.SellerId == seller.Id)
+                        .Select(i => new OrderItemDto
+                        {
+                            Id = i.Id,
+                            OrderId = i.OrderId,
+                            ProductId = i.ProductId,
+                            ProductName = i.Product != null
+                                ? i.Product.Name ?? string.Empty
+                                : string.Empty,
+                            Quantity = i.Quantity,
+                            UnitPrice = i.UnitPrice,
+                            Total = i.Quantity * i.UnitPrice
+                        })
+                        .ToList()
+                })
+                .ToListAsync();
+        }
+
         public async Task<OrderDto?> UpdateStatusAsync(
             int id,
             UpdateOrderStatusDto dto)

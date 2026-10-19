@@ -11,8 +11,11 @@ namespace BlitzMall_Backend.DTOs.Product
         public decimal? OldPrice { get; set; }
         public int Quantity { get; set; }
         public bool IsActive { get; set; }
+        public int? BrandId { get; set; }
         public string? BrandName { get; set; }
+        public int? CategoryId { get; set; }
         public string? CategoryName { get; set; }
+        public int? SellerId { get; set; }
         public string? SellerName { get; set; }
         public string? ImageUrl { get; set; }
         public List<string> ImgUrls { get; set; } = new();

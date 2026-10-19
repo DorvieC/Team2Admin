@@ -22,7 +22,7 @@ namespace BlitzMall_Backend
             builder.Services.AddCors(options =>
             {
                 options.AddPolicy("FrontendPolicy", policy =>
-                    policy.WithOrigins("http://localhost:5173", "http://localhost:5174", "https://*.ngrok-free.app", "https://*.trycloudflare.com")
+                    policy.WithOrigins("http://localhost:5173", "http://localhost:5174", "http://localhost:5175", "https://*.ngrok-free.app", "https://*.trycloudflare.com")
                           .SetIsOriginAllowedToAllowWildcardSubdomains()
                           .AllowAnyHeader()
                           .AllowAnyMethod()
@@ -30,7 +30,7 @@ namespace BlitzMall_Backend
             });
 
             builder.Services.AddDbContext<AppDbContext>(options =>
-                options.UseSqlServer(
+                options.UseNpgsql(
                     builder.Configuration.GetConnectionString("DefaultConnection")));
 
             builder.Services.AddScoped<IAuthService, AuthService>();

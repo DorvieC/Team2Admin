@@ -62,6 +62,22 @@ namespace BlitzMall_Backend.Controllers
             }
         }
 
+        [HttpGet("seller")]
+        public async Task<IActionResult> GetBySeller()
+        {
+            try
+            {
+                return Ok(await _orderService.GetBySellerAsync());
+            }
+            catch (Exception)
+            {
+                return StatusCode(500, new
+                {
+                    message = "Unexpected error."
+                });
+            }
+        }
+
         [HttpPost]
         public async Task<ActionResult<OrderDto>> Create(
             [FromBody] CreateOrderDto dto)

@@ -9,6 +9,7 @@ namespace BlitzMall_Backend.Services
         Task<OrderDto?> CreateAsync(CreateOrderDto dto);
         Task<OrderDto> CreateFromCartAsync(CreateOrderDto dto);
         Task<List<OrderDto>> GetMyOrdersAsync();
+        Task<List<OrderDto>> GetBySellerAsync();
 
         Task<OrderDto?> UpdateStatusAsync(
             int id,
